@@ -51,9 +51,28 @@ class Neighbourhood:
             'jewelry'   : self.jewelry,
             'general'   : self.general,
             'tavern'    : self.tavern,
-            'guard'     : self.guards,
-            'house'     : self.houses
+            'class-commoner'    : self.houses,
+            'class-guard'       : self.guards,
+            'class-barbarian'   : max(0, random.randint(0, 7)-5),
+            'class-bard'        : random.randint(0, 3),
+            'class-cleric'      : random.randint(0, 2),
+            'class-druid'       : max(0, random.randint(0, 15)-13),
+            'class-fighter'     : max(0, random.randint(0, 10)-9),
+            'class-monk'        : max(0, random.randint(0, 11)-10),
+            'class-paladin'     : max(0, random.randint(0, 16)-13),
+            'class-ranger'      : max(0, random.randint(0, 15)-13),
+            'class-rogue'       : max(0, random.randint(0, 25)-20),
+            'class-sorcerer'    : max(0, random.randint(0, 10)-8),
+            'class-warlock'     : max(0, random.randint(0, 18)-16),
+            'class-wizard'      : max(0, random.randint(0, 8)-7),
+            'class-artificer'   : max(0, random.randint(0, 27)-25)
         }
+
+    def amount_class(self, class_name):
+        if f'class-{class_name}' in self.AMOUNT_FOR_TYPE:
+            return self.AMOUNT_FOR_TYPE[f'class-{class_name}']
+        else:
+            return 0
 
     def __get_houses_gen(self, specific_type):
         for i in range(self.AMOUNT_FOR_TYPE[specific_type]):
