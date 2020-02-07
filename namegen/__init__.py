@@ -1,4 +1,5 @@
 from namegen import (
+    aarakocra,
     dragonborn,
     dwarf,
     elf,
@@ -10,6 +11,7 @@ from namegen import (
 )
 
 RACE_BY_MODULE = {
+    'aarakocra'     :   aarakocra,
     'dragonborn'    :   dragonborn,
     'dwarf'         :   dwarf,
     'elf'           :   elf,
