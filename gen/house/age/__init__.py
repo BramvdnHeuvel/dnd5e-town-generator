@@ -1,7 +1,7 @@
 import json, random
 
 def race_dict(race):
-    return json.load(open('gen/age/ages.json', 'r'))[race]
+    return json.load(open('data/races.json', 'r'))[race]['age']
 
 def get_adult(dic):
     return random.randint(dic["maturesAt"], dic["livesUntil"])
@@ -23,7 +23,8 @@ def get_parent(dic, children):
 def get_child(dic):
     return random.randint(0, dic["maturesAt"])
 
-def get_family_ages(size, race):
+def get_family_ages(seed, size, race):
+    random.seed(seed)
     dic = race_dict(race)
 
     if size == 1:
@@ -48,6 +49,3 @@ def get_family_ages(size, race):
         yield p2
         yield from children
 
-
-if __name__ == '__main__':
-    print([p for p in get_family_ages(1, 'Elf')])

@@ -1,4 +1,4 @@
-from gen.name import (
+from gen.person.name import (
     aarakocra,
     dragonborn,
     dwarf,
@@ -9,6 +9,7 @@ from gen.name import (
     human,
     tiefling
 )
+import random
 
 RACE_BY_MODULE = {
     'aarakocra'     :   aarakocra,
@@ -21,6 +22,14 @@ RACE_BY_MODULE = {
     'human'         :   human,
     'tiefling'      :   tiefling
 }
+
+def last_name(seed, race):
+    random.seed(seed)
+    return get_name_from_race(race, 'last_name')
+
+def first_name(seed, race, gender):
+    random.seed(seed)
+    return get_name_from_race(race, gender.lower())
 
 def get_name_from_race(race, name_type):
     name_type = name_type.lower()
