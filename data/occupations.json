@@ -1,0 +1,116 @@
+{
+    "Commoner": {
+        "n": 250,
+        "e": 150,
+        "family": true,
+        "shop": null
+    },
+    "Guard": {
+        "n": 25,
+        "e": 10,
+        "family": true,
+        "shop": null
+    },
+    "Barbarian": {
+        "n": 10,
+        "e": 0.25,
+        "family": true,
+        "shop": null
+    },
+    "Bard": {
+        "n": 5,
+        "e": 2,
+        "family": true,
+        "shop": null
+    },
+    "Cleric": {
+        "n": 10,
+        "e": 2,
+        "family": false,
+        "shop": null
+    },
+    "Druid": {
+        "n": 3,
+        "e": 0.01,
+        "family": false,
+        "shop": null
+    },
+    "Fighter": {
+        "n": 150,
+        "e": 75,
+        "family": true,
+        "shop": null
+    },
+    "Monk": {
+        "n": 10,
+        "e": 0.05,
+        "family": false,
+        "shop": null
+    },
+    "Paladin": {
+        "n": 150,
+        "e": 75,
+        "family": false,
+        "shop": null
+    },
+    "Ranger": {
+        "n": 150,
+        "e": 75,
+        "family": false,
+        "shop": null
+    },
+    "Rogue": {
+        "n": 150,
+        "e": 75,
+        "family": true,
+        "shop": null
+    },
+    "Sorcerer": {
+        "n": 50,
+        "e": 2,
+        "family": true,
+        "shop": null
+    },
+    "Warlock": {
+        "n": 5,
+        "e": 0.15,
+        "family": false,
+        "shop": null
+    },
+    "Wizard": {
+        "n": 150,
+        "e": 75,
+        "family": false,
+        "shop": null
+    },
+    "Artificer": {
+        "n": 150,
+        "e": 0.08,
+        "family": false,
+        "shop": null
+    },
+    "Blacksmith": {
+        "n": 30,
+        "e": 3,
+        "family": true,
+        "shop": "Blacksmith"
+    },
+    "Salesman": {
+        "n": 30,
+        "e": 3,
+        "family": true,
+        "shop": "General Store"
+    },
+    "Barkeep": {
+        "n": 1,
+        "e": 1,
+        "family": true,
+        "shop": "Tavern"
+    },
+    "Magic merchant": {
+        "n": 30,
+        "e": 3,
+        "family": true,
+        "shop": "Magic Store"
+    }
+}

@@ -1,9 +1,4 @@
-import random
-
-def get_inventory():
-    return random.choice(OPTIONS)
-
-OPTIONS = [
+[
     "Bag of 20 caltrops",
     "Ball of twine",
     "Bottle of ink",
@@ -13,7 +8,7 @@ OPTIONS = [
     "Candle",
     "Comb",
     "Brush",
-    "Component pouh",
+    "Component pouch",
     "Deck of playing cards",
     "1d4 dice",
     "Flute",

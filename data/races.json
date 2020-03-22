@@ -1,0 +1,266 @@
+{
+    "Human": {
+        "density": 800000,
+        "age": {
+            "maturesAt": 20,
+            "livesUntil": 90,
+            "becomesParentUntil": 40
+        }
+    },
+    "Half-elf": {
+        "density": 100000,
+        "age": {
+            "maturesAt": 20,
+            "livesUntil": 200,
+            "becomesParentUntil": 160
+        }
+    },
+    "Dwarf": {
+        "density": 60000,
+        "age": {
+            "maturesAt": 50,
+            "livesUntil": 350,
+            "becomesParentUntil": 150
+        }
+    },
+    "Elf": {
+        "density": 35000,
+        "age": {
+            "maturesAt": 100,
+            "livesUntil": 750,
+            "becomesParentUntil": 500
+        }
+    },
+    "Half-orc": {
+        "density": 25000,
+        "age": {
+            "maturesAt": 14,
+            "livesUntil": 75,
+            "becomesParentUntil": 30
+        }
+    },
+    "Halfling": {
+        "density": 20000,
+        "age": {
+            "maturesAt": 20,
+            "livesUntil": 65,
+            "becomesParentUntil": 40
+        }
+    },
+    "Dragonborn": {
+        "density": 10000,
+        "age": {
+            "maturesAt": 15,
+            "livesUntil": 80,
+            "becomesParentUntil": 40
+        }
+    },
+    "Tiefling": {
+        "density": 10000,
+        "age": {
+            "maturesAt": 20,
+            "livesUntil": 110,
+            "becomesParentUntil": 45
+        }
+    },
+    "Gnome": {
+        "density": 10000,
+        "age": {
+            "maturesAt": 40,
+            "livesUntil": 500,
+            "becomesParentUntil": 200
+        }
+    },
+    "Aasimar": {
+        "density": 9000,
+        "age": {
+            "maturesAt": 20,
+            "livesUntil": 160,
+            "becomesParentUntil": 60
+        }
+    },
+    "Orc": {
+        "density": 8000,
+        "age": {
+            "maturesAt": 12,
+            "livesUntil": 50,
+            "becomesParentUntil": 30
+        }
+    },
+    "Goliath": {
+        "density": 7500,
+        "age": {
+            "maturesAt": 20,
+            "livesUntil": 90,
+            "becomesParentUntil": 40
+        }
+    },
+    "Tabaxi": {
+        "density": 5000,
+        "age": {
+            "maturesAt": 20,
+            "livesUntil": 90,
+            "becomesParentUntil": 40
+        }
+    },
+    "Hobgoblin": {
+        "density": 2500,
+        "age": {
+            "maturesAt": 0,
+            "livesUntil": 0,
+            "becomesParentUntil": 0
+        }
+    },
+    "Lizardfolk": {
+        "density": 1500,
+        "age": {
+            "maturesAt": 14,
+            "livesUntil": 60,
+            "becomesParentUntil": 30
+        }
+    },
+    "Goblin": {
+        "density": 1000,
+        "age": {
+            "maturesAt": 8,
+            "livesUntil": 60,
+            "becomesParentUntil": 30
+        }
+    },
+    "Yuan-Ti Pureblood": {
+        "density": 1000,
+        "age": {
+            "maturesAt": 20,
+            "livesUntil": 90,
+            "becomesParentUntil": 40
+        }
+    },
+    "Bugbear": {
+        "density": 1000,
+        "age": {
+            "maturesAt": 16,
+            "livesUntil": 80,
+            "becomesParentUntil": 35
+        }
+    },
+    "Tortle": {
+        "density": 1000,
+        "age": {
+            "maturesAt": 15,
+            "livesUntil": 50,
+            "becomesParentUntil": 30
+        }
+    },
+    "Warforged": {
+        "density": 1000,
+        "age": {
+            "maturesAt": 0,
+            "livesUntil": 5000,
+            "becomesParentUntil": 5000
+        }
+    },
+    "Kobold": {
+        "density": 800,
+        "age": {
+            "maturesAt": 6,
+            "livesUntil": 120,
+            "becomesParentUntil": 25
+        }
+    },
+    "Shifter": {
+        "density": 750,
+        "age": {
+            "maturesAt": 10,
+            "livesUntil": 70,
+            "becomesParentUntil": 30
+        }
+    },
+    "Triton": {
+        "density": 400,
+        "age": {
+            "maturesAt": 15,
+            "livesUntil": 200,
+            "becomesParentUntil": 110
+        }
+    },
+    "Firbolg": {
+        "density": 300,
+        "age": {
+            "maturesAt": 30,
+            "livesUntil": 500,
+            "becomesParentUntil": 300
+        }
+    },
+    "Kalashtar": {
+        "density": 250,
+        "age": {
+            "maturesAt": 20,
+            "livesUntil": 90,
+            "becomesParentUntil": 40
+        }
+    },
+    "Aarakocra": {
+        "density": 250,
+        "age": {
+            "maturesAt": 3,
+            "livesUntil": 30,
+            "becomesParentUntil": 20
+        }
+    },
+    "Kenku": {
+        "density": 200,
+        "age": {
+            "maturesAt": 12,
+            "livesUntil": 60,
+            "becomesParentUntil": 36
+        }
+    },
+    "Changeling": {
+        "density": 50,
+        "age": {
+            "maturesAt": 20,
+            "livesUntil": 90,
+            "becomesParentUntil": 40
+        }
+    },
+    "Gith": {
+        "density": 75,
+        "age": {
+            "maturesAt": 20,
+            "livesUntil": 90,
+            "becomesParentUntil": 40
+        }
+    },
+    "Air Genasi": {
+        "density": 10,
+        "age": {
+            "maturesAt": 20,
+            "livesUntil": 120,
+            "becomesParentUntil": 50
+        }
+    },
+    "Earth Genasi": {
+        "density": 10,
+        "age": {
+            "maturesAt": 20,
+            "livesUntil": 120,
+            "becomesParentUntil": 50
+        }
+    },
+    "Fire Genasi": {
+        "density": 10,
+        "age": {
+            "maturesAt": 20,
+            "livesUntil": 120,
+            "becomesParentUntil": 50
+        }
+    },
+    "Water Genasi": {
+        "density": 10,
+        "age": {
+            "maturesAt": 20,
+            "livesUntil": 120,
+            "becomesParentUntil": 50
+        }
+    }
+}
