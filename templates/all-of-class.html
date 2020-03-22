@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Class {{ class_name }}</title>
+    <script src="/static/sort.js"></script>
+    <link rel="stylesheet" href="/static/marg.css" type="text/css">
+</head>
+<body>
+    <p><a href="/town/{{ town }}/{{ size }}"><< Go back to main town.</a></p>
+    <h2>View all {{ class_name }}</h2>
+    <table id="class-table" width="90%" border="1">
+        <thead>
+            <th onclick="sortTable(0, 'class-table', false)">Name</th>
+            <th onclick="sortTable(1, 'class-table', true)">Level</th>
+            <th onclick="sortTable(2, 'class-table', false)">Class</th>
+            <th onclick="sortTable(3, 'class-table', false)">Gender</th>
+            <th onclick="sortTable(4, 'class-table', false)">Race</th>
+            <th onclick="sortTable(5, 'class-table', true)">Age</th>
+        </thead>
+        <tbody>
+            {% for person in people %}
+                <tr>
+                    <td><a href="{{ url_for('get_npc', npc_number=person.number, town_name=town, size=size) }}">{{ person.name }}</a></td>
+                    <td>{{ person.level }}</td>
+                    <td>{{ person.class_name.capitalize() }}</td>
+                    <td>{{ person.gender }}</td>
+                    <td>{{ person.race }}</td>
+                    <td>{{ person.age }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

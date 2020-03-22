@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>All {{ htype }}s</title>
+    <link rel="stylesheet" href="/static/marg.css" type="text/css">
+</head>
+
+<body>
+    <p><a href="/town/{{ town.name }}/{{ town.size }}"><< Go back to main town.</a></p>
+    {% if town.has_store(htype) %}
+        <h3>All {{ htype }}s in {{ town.name }}</h3>
+        {% for house in town.get_stores(htype) %}
+            <p>
+                <a href="#">{{ house.store['name'] }}</a>, owned by {{ house.store['owner'].name }}
+            </p>
+        {% endfor %}
+    {% else %}
+        <h4>{{ town.name }} does not have any {{ htype }}s.</h4>
+    {% endif %}
+</body>
+
+</html>

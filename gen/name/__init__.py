@@ -1,4 +1,4 @@
-from namegen import (
+from gen.name import (
     aarakocra,
     dragonborn,
     dwarf,

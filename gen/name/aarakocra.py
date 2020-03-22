@@ -17,3 +17,9 @@ def male():
 
 def last_name():
     return female()
+
+def full_name(gender):
+    if gender == 'male':
+        return male() + ' ' + last_name()
+    else:
+        return female() + ' ' + last_name()

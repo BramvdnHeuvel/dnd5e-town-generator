@@ -1,54 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link rel="stylesheet" href="/static/marg.css" type="text/css">
 </head>
+
 <body>
     <h1>YOUR TOWN NAME</h1>
-    <table width="90%" border="1">
-        <tbody>
-            <tr>
-                <td>Commoners</td>
-                <td>Militia</td>
-                <td>Stuff</td>
-                <td>Aidunno</td>
-            </tr>
-            <tr>
-                <td>Meh stuff</td>
-                <td>Other cool thing no-one cares about</td>
-                <td>1</td>
-                <td>Aidunno</td>
-            </tr>
-        </tbody>
-    </table>
 
-    {% for name in town.available_classes() %}
-        <a href="/{{ town.name }}/{{ town.size }}/class/{{ name }}"><p>View all {{ name }}s</p></a>
+    {% for name in town.classes %}
+    <a href="/{{ town.name }}/{{ town.size }}/class/{{ name }}">
+        <p>View all {{ name }}s: {{ town.count_class(name) }}</p>
+    </a>
     {% endfor %}
 
 
-    <h3>Blacksmiths</h3>
-    <p><a href="#">Yo momma</a></p>
-    <p><a href="#">Yo momma</a></p>
-    <p><a href="#">Yo momma</a></p>
-    <p><a href="#">Yo momma</a></p>
-    <p><a href="#">Yo momma</a></p>
+    {% for name, value in [
+        ('Blacksmith', 'blacksmith'),
+        ('Magic Shop', 'magic-shop'),
+        ('Spells and scrolls shop', 'scrolls'),
+        ('General Store', 'general'),
+        ('Tavern', 'tavern')
+    ] %}
 
-    <h3>General store</h3>
-    <p><a href="#">Yo momma</a></p>
-    <p><a href="#">Yo momma</a></p>
-    <p><a href="#">Yo momma</a></p>
-    <p><a href="#">Yo momma</a></p>
-    <p><a href="#">Yo momma</a></p>
+    {% if town.has_store(value) %}
+    <h3>{{ name }}s</h3>
+    {% for house in town.get_stores(value, preview=True) %}
+    <p>
+        <a href="#">{{ house.store['name'] }}</a>, owned by {{ house.store['owner'].name }}
+    </p>
+    {% endfor %}
 
-    <h3>Taverns</h3>
-    <p><a href="#">Yo momma</a></p>
-    <p><a href="#">Yo momma</a></p>
-    <p><a href="#">Yo momma</a></p>
-    <p><a href="#">Yo momma</a></p>
-    <p><a href="#">Yo momma</a></p>
+    {% if town.has_store(value, at_least=11) %}
+    <p><a href="{{ url_for('show_all_stores', town_name=town.name, size=town.size, store_type=value) }}">View all {{ name.lower() }}s >></a></p>
+    {% endif %}
+    {% endif %}
+
+    {% endfor %}
 </body>
+
 </html>

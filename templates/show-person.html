@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Class {{ class_name }}</title>
+    <script src="/static/sort.js"></script>
+    <link rel="stylesheet" href="/static/marg.css" type="text/css">
+</head>
+<body>
+    <p><a href="{{ url_for('show_town', town_name=town_name, size=size ) }}"><< Go back to main town.</a></p>
+
+    {% if npc == None%}
+
+        <p>This person does not exist.</p>
+
+    {% else %}
+
+        <table width="90%" border="1">
+            <tbody>
+                <tr><td>Name</td><td>{{ npc.name }}</td></tr>
+                <tr><td>Level</td><td>{{ npc.level }}</td></tr>
+                <tr><td>Class</td><td>{{ npc.class_name.capitalize() }}</td></tr>
+                <tr><td>Gender</td><td>{{ npc.gender }}</td></tr>
+                <tr><td>Race</td><td>{{ npc.race }}</td></tr>
+                <tr><td>Age</td><td>{{ npc.age }}</td></tr>
+            </tbody>
+        </table>
+
+        <h2>Schedule</h2>
+        <table width="30%" border="1">
+            <tbody>
+                <tr><td>00:00 - 01:00</td><td>{{ npc.schedule[0] }}</td></tr>
+                <tr><td>01:00 - 02:00</td><td>{{ npc.schedule[1] }}</td></tr>
+                <tr><td>02:00 - 03:00</td><td>{{ npc.schedule[2] }}</td></tr>
+                <tr><td>03:00 - 04:00</td><td>{{ npc.schedule[3] }}</td></tr>
+                <tr><td>04:00 - 05:00</td><td>{{ npc.schedule[4] }}</td></tr>
+                <tr><td>05:00 - 06:00</td><td>{{ npc.schedule[5] }}</td></tr>
+                <tr><td>06:00 - 07:00</td><td>{{ npc.schedule[6] }}</td></tr>
+                <tr><td>07:00 - 08:00</td><td>{{ npc.schedule[7] }}</td></tr>
+                <tr><td>08:00 - 09:00</td><td>{{ npc.schedule[8] }}</td></tr>
+                <tr><td>09:00 - 10:00</td><td>{{ npc.schedule[9] }}</td></tr>
+                <tr><td>10:00 - 11:00</td><td>{{ npc.schedule[10] }}</td></tr>
+                <tr><td>11:00 - 12:00</td><td>{{ npc.schedule[11] }}</td></tr>
+                <tr><td>12:00 - 13:00</td><td>{{ npc.schedule[12] }}</td></tr>
+                <tr><td>13:00 - 14:00</td><td>{{ npc.schedule[13] }}</td></tr>
+                <tr><td>14:00 - 15:00</td><td>{{ npc.schedule[14] }}</td></tr>
+                <tr><td>15:00 - 16:00</td><td>{{ npc.schedule[15] }}</td></tr>
+                <tr><td>16:00 - 17:00</td><td>{{ npc.schedule[16] }}</td></tr>
+                <tr><td>17:00 - 18:00</td><td>{{ npc.schedule[17] }}</td></tr>
+                <tr><td>18:00 - 19:00</td><td>{{ npc.schedule[18] }}</td></tr>
+                <tr><td>19:00 - 20:00</td><td>{{ npc.schedule[19] }}</td></tr>
+                <tr><td>20:00 - 21:00</td><td>{{ npc.schedule[20] }}</td></tr>
+                <tr><td>21:00 - 22:00</td><td>{{ npc.schedule[21] }}</td></tr>
+                <tr><td>22:00 - 23:00</td><td>{{ npc.schedule[22] }}</td></tr>
+                <tr><td>23:00 - 00:00</td><td>{{ npc.schedule[23] }}</td></tr>
+                {% if False %}<!-- 
+                    I know this is bad practice, but I absolutely despise 
+                    messing with putting the 0 in front when the number isn't
+                    big enough and stuff. I hate that.
+                    This is fine. Leave me alone. 
+                -->{% endif %}
+            </tbody>
+        </table>
+    {% endif %}
+</body>
+</html>
