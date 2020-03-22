@@ -1,87 +1,45 @@
-from gen.name import get_name_from_race
-from gen.misc.inventory import get_inventory
-from objects.block import cached_property
-import random
+from gen.person import (
+    name,
+    inventory,
+    level
+)
+from src.cache import cached_property
+from gen.house import schedule
 
 class Person:
-    def __init__(self, seed, race, gender, age, clss='commoner', name='', is_mature=True, number=0):
+    def __init__(self, seed, house):
         self.seed = seed
-        self.gender = gender
-        self.race = race
-        self.class_name = clss
-        self.age = age
-        self.last_name = name
-        self.is_mature = is_mature
-        self.number = number
+        self.house = house
+        self.fi = seed[-1]      # Family Index
 
-    @cached_property
-    def schedule(self):
-        num_dic = {
-            0: 'Asleep',
-            1: 'Doing nothing in particular',
-            2: 'Hanging out in the tavern',
-            3: 'Eating food at the tavern'
-        }
-        if self.class_name != 'commoner':
-            num_dic[2] = 'At work'
-        if not self.is_mature:
-            num_dic[2] = 'Playing outside'
+        self.race = house.race
+        self.gender = house.genders[self.fi]
 
-        random.seed(f'{self.seed}-schedule')
-        return [num_dic[i] for i in self.__build_schedule()]
+        self.is_mature = (self.fi < 2)
     
     @cached_property
-    def inventory(self):
-        random.seed(f'{self.seed}-inventory')
-        return get_inventory
-
-    @cached_property
-    def level(self):
-        if self.class_name == 'commoner':
-            return 1
-
-        random.seed(f'{self.seed}-level')
-
-        level = 1
-        while random.random() < 0.7 and level < 20:
-            level += 1
-        return level
+    def class_name(self):
+        if self.fi > 0:
+            return 'Commoner'
+        else:
+            return self.house.occupation
 
     @cached_property
     def name(self):
-        random.seed(f'{self.seed}-name')
-        return get_name_from_race(self.race, self.gender) + self.last_name
+        return name.first_name(self.seed + ('name',), self.race, self.gender) + ' ' + self.house.family_name
+    
+    @cached_property
+    def inventory(self):
+        return inventory.get_inventory(self.seed + ('inventory',))
 
-    def __build_schedule(self):
-        if self.class_name == 'class-commoner':
-            wake_up = random.randint(4, 12)
-            lunch = random.randint(11, 15)
-            dinner = lunch + 6
-            drunk = random.randint(16, 21)
+    @cached_property
+    def level(self):
+        return level.get_level(self.seed + ('level',), self.class_name, self.is_mature)
 
-            for i in range(24):
-                if i + 24 > wake_up + 16 and i < wake_up:
-                    yield 0 # Asleep
-                elif i in [lunch, dinner]:
-                    yield 3 # Eating food at the tavern
-                elif i in [drunk, drunk + 1, drunk + 2]:
-                    yield 2 # Drinking at the tavern
-                else:
-                    yield 1 # Doing nothing in particular
-                
-        else:
-            wake_up = random.randint(5, 8)
-            work = random.randint(8, 10)
-            lunch = random.randint(11, 14)
-            dinner = work + 9
+    @cached_property
+    def schedule(self):
+        return schedule.translate_schedule(self.house.schedule, self.is_mature, self.house.neighbourhood.houses['Barkeep'][0].name)
+    
 
-            for i in range(24):
-                if i < wake_up or i >= (wake_up + 16):
-                    yield 0  # Asleep
-                elif i in [lunch, dinner]:
-                    yield 3 # Eating food at the taven
-                elif i >= work and i < dinner:
-                    yield 2 # At work
-                else:
-                    yield 1 # Doing nothing in particular 
-
+    def find(self, obj_type, seed):
+        return self if (seed == self.seed and obj_type == 'person') else None
