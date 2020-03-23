@@ -7,7 +7,7 @@ with open('data/races.json', 'r') as open_file:
     TOTAL = sum(RACE_BY_WEIGHT.values())
 
 def race(seed):
-    random.seed(seed)
+    random.seed(str(seed))
     r = random.randint(1, TOTAL)
 
     for race in RACE_BY_WEIGHT:

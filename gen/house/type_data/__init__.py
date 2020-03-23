@@ -8,5 +8,5 @@ DATA_MODULE = {
 }
 
 def get_house_type_data(seed, house_type):
-    random.seed(seed)
+    random.seed(str(seed))
     return DATA_MODULE[house_type].get_data()

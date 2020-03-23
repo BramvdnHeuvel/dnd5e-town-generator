@@ -1,7 +1,7 @@
 import random
 
 def get_level(seed, class_name, is_mature):
-    random.seed(seed)
+    random.seed(str(seed))
 
     if class_name == 'Commoner':
         return 1

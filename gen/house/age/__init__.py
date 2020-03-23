@@ -1,5 +1,10 @@
 import json, random
 
+def get_ages(seed, size, race):
+    random.seed(str(seed))
+    return [a for a in get_family_ages(size, race)]
+
+
 def race_dict(race):
     return json.load(open('data/races.json', 'r'))[race]['age']
 
@@ -23,8 +28,8 @@ def get_parent(dic, children):
 def get_child(dic):
     return random.randint(0, dic["maturesAt"])
 
-def get_family_ages(seed, size, race):
-    random.seed(seed)
+def get_family_ages(size, race):
+
     dic = race_dict(race)
 
     if size == 1:

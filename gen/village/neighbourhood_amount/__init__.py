@@ -11,6 +11,6 @@ NEIGHBOURHOOD_SIZE_TO_RANGE = {
 }
 
 def get_neighbourhood_amount(seed, size):
-    random.seed(seed)
+    random.seed(str(seed))
     sizes = NEIGHBOURHOOD_SIZE_TO_RANGE[size]
     return random.randint(*sizes)

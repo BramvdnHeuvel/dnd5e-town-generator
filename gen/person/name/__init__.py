@@ -24,11 +24,11 @@ RACE_BY_MODULE = {
 }
 
 def last_name(seed, race):
-    random.seed(seed)
+    random.seed(str(seed))
     return get_name_from_race(race, 'last_name')
 
 def first_name(seed, race, gender):
-    random.seed(seed)
+    random.seed(str(seed))
     return get_name_from_race(race, gender.lower())
 
 def get_name_from_race(race, name_type):

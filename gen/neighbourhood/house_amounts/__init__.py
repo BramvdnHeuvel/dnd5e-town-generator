@@ -4,7 +4,7 @@ with open('data/occupations.json', 'r') as open_file:
     OCCUPATIONS = json.load(open_file)
 
 def house_amounts(seed):
-    random.seed(seed)
+    random.seed(str(seed))
     dic = {}
 
     for occup in OCCUPATIONS:

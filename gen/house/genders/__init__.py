@@ -3,7 +3,7 @@ import random
 GENDERS = ["Male", "Female"]
 
 def get_genders(seed, size):
-    random.seed(seed)
+    random.seed(str(seed))
 
     if size == 1:
         return [random.choice(GENDERS)]

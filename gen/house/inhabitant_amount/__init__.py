@@ -11,7 +11,7 @@ with open('data/race.json', 'r') as open_file:
 
 
 def get_inhabitants(seed, house_type, race):
-    random.seed(seed)
+    random.seed(str(seed))
 
     if FAMILY[house_type] == False:
         return 1
