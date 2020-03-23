@@ -12,7 +12,7 @@ def translate_schedule(schedule, is_mature, tavern_name):
         # Children go to bed early. Yes, even the 99 year old elves!
         for i, s in zip(range(24), schedule):
             if i < 21 or is_mature:
-                yield s
+                yield s[1]
             else:
                 yield 0
 

@@ -17,12 +17,12 @@ def Village(name, size):
     seed = f"{name}-{size}"
     TIMES[seed] = time.time()
 
-    if seed in MANAGER:
-        return MANAGER[seed]
-    else:
+    if seed not in MANAGER:
         MANAGER[seed] = VObject(name, size, PASSWORD)
     
+    return MANAGER[seed]
 
+def clean_tree():
     # Clean memory: remove villages that haven't been inspected for a while.
     for seed in MANAGER:
         if (time.time() - TIMES[seed]) > (5 * 60):

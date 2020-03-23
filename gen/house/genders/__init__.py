@@ -17,3 +17,5 @@ def get_genders(seed, size):
     
     for _ in range(size-2):
         gen.append(random.choice(GENDERS))
+
+    return gen

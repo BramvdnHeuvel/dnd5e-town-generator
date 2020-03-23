@@ -19,7 +19,7 @@ class House:
 
     @cached_property
     def ages(self):
-        return age.get_family_ages(self.seed + ('ages',), self.inhabitant_amount, self.race)
+        return age.get_ages(self.seed + ('ages',), self.inhabitant_amount, self.race)
     
     @cached_property
     def family_name(self):

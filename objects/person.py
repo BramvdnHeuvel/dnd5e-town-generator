@@ -18,6 +18,10 @@ class Person:
         self.is_mature = (self.fi < 2)
     
     @cached_property
+    def age(self):
+        return self.house.ages[self.fi]
+    
+    @cached_property
     def class_name(self):
         if self.fi > 0:
             return 'Commoner'
@@ -38,7 +42,7 @@ class Person:
 
     @cached_property
     def schedule(self):
-        return schedule.translate_schedule(self.house.schedule, self.is_mature, self.house.neighbourhood.houses['Barkeep'][0].name)
+        return schedule.translate_schedule(self.house.family_schedule, self.is_mature, self.house.neighbourhood.houses['Barkeep'][0].name)
     
 
     def find(self, obj_type, seed):

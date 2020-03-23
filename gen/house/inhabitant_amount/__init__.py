@@ -1,13 +1,13 @@
 import random, json
 
-with open('occupations.json', 'r') as open_file:
+with open('data/occupations.json', 'r') as open_file:
     FAMILY = json.load(open_file)
     FAMILY = {job: FAMILY[job]['family'] for job in FAMILY}
 
-with open('data/race.json', 'r') as open_file:
+with open('data/races.json', 'r') as open_file:
     RACES = json.load(open_file)
-    RACES = {race: RACES['density'] for race in RACES}
-    TOTAL = sum(RACES.value())
+    RACES = {race: RACES[race]['density'] for race in RACES}
+    TOTAL = sum(RACES.values())
 
 
 def get_inhabitants(seed, house_type, race):
@@ -17,7 +17,7 @@ def get_inhabitants(seed, house_type, race):
         return 1
 
     density = RACES[race]
-    if random.random() < 0.5*(1 - (TOTAL-density/TOTAL)**150):
+    if random.random() < 0.5*(1 - ((TOTAL-density)/TOTAL)**150):
         # Provided that there are enough of the same kind to
         # fall in love with, every member of the society has
         # a 50-50 chance to be in a relationship.

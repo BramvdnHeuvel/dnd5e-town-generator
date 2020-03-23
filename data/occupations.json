@@ -36,8 +36,8 @@
         "shop": null
     },
     "Fighter": {
-        "n": 150,
-        "e": 75,
+        "n": 4,
+        "e": 1,
         "family": true,
         "shop": null
     },
@@ -48,20 +48,20 @@
         "shop": null
     },
     "Paladin": {
-        "n": 150,
-        "e": 75,
+        "n": 12,
+        "e": 0.5,
         "family": false,
         "shop": null
     },
     "Ranger": {
         "n": 150,
-        "e": 75,
+        "e": 0.075,
         "family": false,
         "shop": null
     },
     "Rogue": {
-        "n": 150,
-        "e": 75,
+        "n": 25,
+        "e": 1.5,
         "family": true,
         "shop": null
     },
@@ -78,8 +78,8 @@
         "shop": null
     },
     "Wizard": {
-        "n": 150,
-        "e": 75,
+        "n": 5,
+        "e": 0.75,
         "family": false,
         "shop": null
     },
@@ -108,8 +108,8 @@
         "shop": "Tavern"
     },
     "Magic merchant": {
-        "n": 30,
-        "e": 3,
+        "n": 8,
+        "e": 0.5,
         "family": true,
         "shop": "Magic Store"
     }
