@@ -10,16 +10,15 @@
 </head>
 
 <body>
-    <p><a href="/town/{{ town.name }}/{{ town.size }}"><< Go back to main town.</a></p>
-    {% if town.has_store(htype) %}
-        <h3>All {{ htype }}s in {{ town.name }}</h3>
-        {% for house in town.get_stores(htype) %}
-            <p>
-                <a href="#">{{ house.store['name'] }}</a>, owned by {{ house.store['owner'].name }}
-            </p>
+    <p><a href="{{ url_for('show_town', town_name=town.name, size=town.size) }}"><< Go back to main town.</a></p>
+
+    {% if town.classes[htype]['total'] > 0 %}
+        <h3>All {{ htype.lower() }}s in {{ town.name }}</h3>
+        {% for house in town.iter_houses(htype) %}
+            <p><a href="#">{{ house.name }}</a>, owned by {{ house.inhabitants[0].name }}</p>
         {% endfor %}
     {% else %}
-        <h4>{{ town.name }} does not have any {{ htype }}s.</h4>
+        <h4>{{ town.name }} does not have any {{ htype.lower() }}s.</h4>
     {% endif %}
 </body>
 

@@ -9,8 +9,12 @@
     <link rel="stylesheet" href="/static/marg.css" type="text/css">
 </head>
 <body>
-    <p><a href="/town/{{ town }}/{{ size }}"><< Go back to main town.</a></p>
+    <p><a href="{{ url_for('show_town', town_name=town.name, size=town.size) }}"><< Go back to main town.</a></p>
+
+    {% block pagination1 %}
     <h2>View all {{ class_name }}</h2>
+    {% endblock %}
+
     <table id="class-table" width="90%" border="1">
         <thead>
             <th onclick="sortTable(0, 'class-table', false)">Name</th>
@@ -23,7 +27,14 @@
         <tbody>
             {% for person in people %}
                 <tr>
-                    <td><a href="{{ url_for('get_npc', npc_number=person.number, town_name=town, size=size) }}">{{ person.name }}</a></td>
+                    <td><a href="{{ url_for('get_npc', 
+                                                town_name=town.name,
+                                                size=town.size,
+                                                neighbourhood = person.seed[3],
+                                                class_name = person.seed[4],
+                                                house = person.seed[5],
+                                                person = person.seed[6]
+                                            ) }}">{{ person.name }}</a></td>
                     <td>{{ person.level }}</td>
                     <td>{{ person.class_name.capitalize() }}</td>
                     <td>{{ person.gender }}</td>
@@ -33,5 +44,8 @@
             {% endfor %}
         </tbody>
     </table>
+
+    {% block pagination2 %}
+    {% endblock %}
 </body>
 </html>

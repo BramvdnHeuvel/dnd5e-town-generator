@@ -1,54 +1,47 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Class {{ class_name }}</title>
-    <script src="/static/sort.js"></script>
-    <link rel="stylesheet" href="/static/marg.css" type="text/css">
-</head>
-<body>
-    <p><a href="/town/{{ town }}/{{ size }}"><< Go back to main town.</a></p>
+{% extends "all-of-class.html" %}
 
-    {% if page > 0 %}
-        <a href="/{{ town }}/{{ size }}/class/{{ class_name }}/{{ page-1 }}"><< Previous page</a>
-    {% endif %}
-    {% if not last_page %}
-        <a href="/{{ town }}/{{ size }}/class/{{ class_name }}/{{ page+1 }}">Next page >></a>
-    {% endif %}
+{% block pagination1 %}
+    <p>
+        {% if page > 0 %}
+            <a href="{{ url_for('show_people_of_class_at_page', 
+                                    town_name=town.name, 
+                                    size=town.size, 
+                                    class_name=class_name, 
+                                    page=(page-1)
+                                ) 
+                        }}"><< Previous page</a>
+        {% endif %}
+        {% if not last_page %}
+            <a href="{{ url_for('show_people_of_class_at_page', 
+                                    town_name=town.name, 
+                                    size=town.size, 
+                                    class_name=class_name, 
+                                    page=(page+1)
+                                ) 
+                        }}">Next page >></a>
+        {% endif %}
+    </p>
+{% endblock %}
 
-    <h2>View all {{ class_name }}</h2>
-    <table id="class-table" width="90%" border="1">
-        <thead>
-            <th onclick="sortTable(0, 'class-table', false)">Name</th>
-            <th onclick="sortTable(1, 'class-table', true)">Level</th>
-            <th onclick="sortTable(2, 'class-table', false)">Class</th>
-            <th onclick="sortTable(3, 'class-table', false)">Gender</th>
-            <th onclick="sortTable(4, 'class-table', false)">Race</th>
-            <th onclick="sortTable(5, 'class-table', true)">Age</th>
-            <th onclick="sortTable(6, 'class-table', false)">Seed</th>
-        </thead>
-        <tbody>
-            {% for person in people %}
-                <tr>
-                    <td><a href="{{ url_for('get_npc', npc_number=person.number, town_name=town, size=size) }}">{{ person.name }}</a></td>
-                    <td>{{ person.level }}</td>
-                    <td>{{ person.class_name.capitalize() }}</td>
-                    <td>{{ person.gender }}</td>
-                    <td>{{ person.race }}</td>
-                    <td>{{ person.age }}</td>
-                    <td>{{ person.seed }}</td>
-                </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-    
-    {% if page > 0 %}
-        <a href="/{{ town }}/{{ size }}/class/{{ class_name }}/{{ page-1 }}"><< Previous page</a>
-    {% endif %}
-    {% if not last_page %}
-        <a href="/{{ town }}/{{ size }}/class/{{ class_name }}/{{ page+1 }}">Next page >></a>
-    {% endif %}
-</body>
-</html>
+{% block pagination2 %}
+    <p>
+        {% if page > 0 %}
+            <a href="{{ url_for('show_people_of_class_at_page', 
+                                    town_name=town.name, 
+                                    size=town.size, 
+                                    class_name=class_name, 
+                                    page=(page-1)
+                                ) 
+                        }}"><< Previous page</a>
+        {% endif %}
+        {% if not last_page %}
+            <a href="{{ url_for('show_people_of_class_at_page', 
+                                    town_name=town.name, 
+                                    size=town.size, 
+                                    class_name=class_name, 
+                                    page=(page+1)
+                                ) 
+                        }}">Next page >></a>
+        {% endif %}
+    </p>
+{% endblock %}

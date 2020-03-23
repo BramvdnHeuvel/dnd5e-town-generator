@@ -1,6 +1,7 @@
 from gen.village.neighbourhood_amount import get_neighbourhood_amount
 from objects.neighbourhood import Neighbourhood
 from src.cache import cached_property
+import json
 
 class Village:
     def __init__(self, name, size, password):
@@ -9,12 +10,40 @@ class Village:
         self.seed = (password, name, size)
 
     @cached_property
+    def classes(self):
+        with open('data/occupations.json', 'r') as open_file:
+            occupations = json.load(open_file)
+
+            c = {
+                o: {
+                    'total': sum([n.house_amounts[o] for n in self.neighbourhoods]),
+                    'shop': occupations[o]['shop']
+                }
+                for o in occupations
+            }
+        return c
+
+    @cached_property
     def neighbourhood_amount(self):
         return get_neighbourhood_amount(self.seed+('neighbourhood-amount',), self.size)
     
     @cached_property
     def neighbourhoods(self):
         return [Neighbourhood(self.seed + (i,), self) for i in range(self.neighbourhood_amount)]
+    
+    def iter_houses(self, house_type, maximum=0):
+        def house_gen():
+            for n in self.neighbourhoods:
+                try:
+                    for house in n.houses[house_type]:
+                        yield house
+                except KeyError:
+                    break
+        
+        if maximum == 0:
+            return [house for house in house_gen()]
+        else:
+            return [house for house, _ in zip(house_gen(), range(maximum))]
     
     def find(self, obj_type, seed):
         if len(seed) < 3:

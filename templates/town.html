@@ -5,41 +5,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Town of {{ town.name }}</title>
     <link rel="stylesheet" href="/static/marg.css" type="text/css">
 </head>
 
 <body>
-    <h1>YOUR TOWN NAME</h1>
+    <h1>THE TOWN OF {{ town.name.upper() }}</h1>
 
     {% for name in town.classes %}
-    <a href="/{{ town.name }}/{{ town.size }}/class/{{ name }}">
-        <p>View all {{ name }}s: {{ town.count_class(name) }}</p>
-    </a>
+        {% if town.classes[name]['shop'] == None and town.classes[name]['total'] > 0 %}
+            <a href="{{ url_for('show_people_of_class', town_name=town.name, size=town.size, class_name=name) }}">
+                <p>View all {{ name.lower() }}s: {{ town.classes[name]['total'] }}</p>
+            </a>
+        {% endif %}
     {% endfor %}
 
-
-    {% for name, value in [
-        ('Blacksmith', 'blacksmith'),
-        ('Magic Shop', 'magic-shop'),
-        ('Spells and scrolls shop', 'scrolls'),
-        ('General Store', 'general'),
-        ('Tavern', 'tavern')
-    ] %}
-
-    {% if town.has_store(value) %}
-    <h3>{{ name }}s</h3>
-    {% for house in town.get_stores(value, preview=True) %}
-    <p>
-        <a href="#">{{ house.store['name'] }}</a>, owned by {{ house.store['owner'].name }}
-    </p>
-    {% endfor %}
-
-    {% if town.has_store(value, at_least=11) %}
-    <p><a href="{{ url_for('show_all_stores', town_name=town.name, size=town.size, store_type=value) }}">View all {{ name.lower() }}s >></a></p>
-    {% endif %}
-    {% endif %}
-
+    {% for name in town.classes %}
+        {% if town.classes[name]['shop'] != None and town.classes[name]['total'] > 0 %}
+            <h2>{{ town.classes[name]['shop'] }}s</h4>
+            {% for house in town.iter_houses(name, maximum=10) %}
+                <p>
+                    <a href="#">{{ house.name }}</a>, owned by {{ house.inhabitants[0].name }}
+                </p>
+            {% endfor %}
+            {% if town.classes[name]['total'] > 10 %}
+                <p>
+                    <a href="{{ url_for('show_all_stores', town_name=town.name, size=town.size, store_type=name) }}">
+                        View all {{ name.lower() }}s >>
+                    </a>
+                </p>
+            {% endif %}
+        {% endif %}
     {% endfor %}
 </body>
 

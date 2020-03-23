@@ -1,5 +1,6 @@
 from flask import Flask, render_template, redirect, url_for
-from objects import Village
+from objects import Village, clean_tree, PASSWORD
+from src.extractor import iter_over_people
 
 app = Flask(__name__)
 
@@ -16,14 +17,13 @@ def show_all_stores(town_name, size, store_type):
 
 @app.route('/<town_name>/<size>/class/<class_name>')
 def show_people_of_class(town_name, size, class_name):
-    v = Village(town_name, size)
+    town = Village(town_name, size)
 
-    if v.count_class(class_name) <= 50: # Should be <= 50 in production
+    if town.classes[class_name]['total'] <= 50:
         return render_template('all-of-class.html', 
+                town=Village(town_name, size),
                 class_name=class_name,
-                people=Village(town_name, size).iter_over_class(class_name),
-                town=town_name,
-                size=size
+                people=iter_over_people(town, class_name)
         )
     else:
         return redirect(url_for('show_people_of_class_at_page',
@@ -36,18 +36,17 @@ def show_people_of_class(town_name, size, class_name):
 
 @app.route('/<town_name>/<size>/class/<class_name>/<int:page>')
 def show_people_of_class_at_page(town_name, size, class_name, page):
-    v = Village(town_name, size)
-    population = v.count_class(class_name)
+    town = Village(town_name, size)
+    population = town.classes[class_name]['total']
 
     if population < 50:
         return redirect(url_for('show_people_of_class', town_name=town_name, size=size, class_name=class_name))
     
     elif population >= page*50:
         return render_template('some-of-class.html', 
+                town=town,
                 class_name=class_name,
-                people=v.iter_over_class(class_name, page),
-                town=town_name,
-                size=size,
+                people=iter_over_people(town, class_name, page),
                 page=page,
                 last_page=(int(population/50) == page)
         )
@@ -61,13 +60,15 @@ def show_people_of_class_at_page(town_name, size, class_name, page):
                                 )
                         )
 
-@app.route('/<town_name>/<size>/npc/<int:npc_number>')
-def get_npc(town_name, size, npc_number):
-    v = Village(town_name, size)
+@app.route('/<town_name>/<size>/npc/<int:neighbourhood>/<class_name>/<int:house>/<int:person>')
+def get_npc(town_name, size, neighbourhood, class_name, house, person):
+    seed = (PASSWORD, town_name, size, neighbourhood, class_name, house, person)
+    town = Village(town_name, size)
+    person = town.find('person', seed)
+
     return render_template('show-person.html',
-        npc=v.find_npc(npc_number),
-        town_name=town_name,
-        size=size
+        town=town,
+        person=person,
     )
 
 if __name__ == '__main__':
