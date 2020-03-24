@@ -54,7 +54,7 @@
         "shop": null
     },
     "Ranger": {
-        "n": 150,
+        "n": 10,
         "e": 0.075,
         "family": false,
         "shop": null
@@ -84,7 +84,7 @@
         "shop": null
     },
     "Artificer": {
-        "n": 150,
+        "n": 25,
         "e": 0.08,
         "family": false,
         "shop": null
