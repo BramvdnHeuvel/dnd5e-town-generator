@@ -3,6 +3,10 @@ from objects.neighbourhood import Neighbourhood
 from src.cache import cached_property
 import json
 
+with open('data/occupations.json', 'r') as open_file:
+    occup_dic = json.load(open_file)
+    CLASS_WITH_COMMONERS = [occup for occup in occup_dic if occup_dic[occup]['family'] or occup == 'Commoner']
+
 class Village:
     def __init__(self, name, size, password):
         self.name = name
@@ -21,6 +25,11 @@ class Village:
                 }
                 for o in occupations
             }
+        
+        for o in CLASS_WITH_COMMONERS:
+            for n in self.neighbourhoods:
+                for h in n.houses[o]:
+                    c['Commoner']['total'] += h.inhabitant_amount - 1
         return c
 
     @cached_property
