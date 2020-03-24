@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{ tavern.name }} patrons</title>
+    <script src="/static/sort.js"></script>
+    <link rel="stylesheet" href="/static/marg.css" type="text/css">
+</head>
+<body>
+    <p><a href="{{ url_for('show_town', town_name=town.name, size=town.size) }}"><< Go back to main town.</a></p>
+
+    <p><< Go back to the {{ tavern }} page.</p>
+    
+    <h2>Patrons in the {{ tavern.name }} between {{ g['time'] }} and {{ g['time']+1 }} o'clock</h2>
+    
+    <h3>Special guests</h3>
+
+    <table id="special-guest-table" width="90%" border="1">
+        <thead>
+            <th onclick="sortTable(0, 'special-guest-table', false)">Name</th>
+            <th onclick="sortTable(1, 'special-guest-table', true)">Age</th>
+            <th onclick="sortTable(2, 'special-guest-table', false)">Race</th>
+            <th onclick="sortTable(3, 'special-guest-table', false)">Gender</th>
+            <th onclick="sortTable(4, 'special-guest-table', false)">Class</th>
+            <th onclick="sortTable(5, 'special-guest-table', true)">Level</th>
+        </thead>
+        <tbody>
+            {% for person in g['specialGuests'] %}
+                <tr>
+                    <td>{{ person }}</td>
+                    <td>{{ person.age }}</td>
+                    <td>{{ person.race }}</td>
+                    <td>{{ person.gender }}</td>
+                    <td>{{ person.class_name.capitalize() }}</td>
+                    <td>{{ person.level }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <h3>Other guests</h3>
+
+    <table id="guest-table" width="90%" border="1">
+        <thead>
+            <th onclick="sortTable(0, 'guest-table', false)">Name</th>
+            <th onclick="sortTable(1, 'guest-table', true)">Age</th>
+            <th onclick="sortTable(2, 'guest-table', false)">Race</th>
+            <th onclick="sortTable(3, 'guest-table', false)">Gender</th>
+            <th onclick="sortTable(4, 'guest-table', false)">Class</th>
+            <th onclick="sortTable(5, 'guest-table', true)">Level</th>
+        </thead>
+        <tbody>
+            {% for person in g['guests'] %}
+                <tr>
+                    <td>{{ person }}</td>
+                    <td>{{ person.age }}</td>
+                    <td>{{ person.race }}</td>
+                    <td>{{ person.gender }}</td>
+                    <td>{{ person.class_name.capitalize() }}</td>
+                    <td>{{ person.level }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</body>
+</html>

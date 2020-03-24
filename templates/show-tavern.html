@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% if tavern == None %}Unknown tavern{% else %}Tavern {{ tavern.name }}{% endif %}</title>
+</head>
+<body>
+    <a href="url_for('show_town', town_name=town.name, size=town.size)"><< Go back to main town.</a>
+    {% if tavern == None%}
+        This tavern does not exist.
+    {% else %}
+        <svg width="640" height="400" id="mainSVG">
+            {% for r in tavern.extra_data['graph']['rect'] %}
+                <a href="
+                    {{ 
+                        url_for(
+                            'tavern_guests_at_given_time', 
+                            town_name=town.name,
+                            size=town.size,
+                            neighbourhood=tavern.seed[3],
+                            tavern_id=tavern.seed[5],
+                            time=r['time']
+                        ) 
+                    }}
+                "><rect fill="#cccccc" x="{{r['x']}}" y="{{r['y']}}" width="{{r['width']}}" height="{{r['height']}}"></rect></a>
+            {% endfor %}
+            {% for t in tavern.extra_data['graph']['text'] %}
+                <text x="{{t['x']}}" y="{{t['y']}}">{{ t['value'] }}</text>
+            {% endfor %}
+        </svg>	
+    {% endif %}
+</body>
+</html>

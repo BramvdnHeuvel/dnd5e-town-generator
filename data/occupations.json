@@ -1,7 +1,7 @@
 {
     "Commoner": {
         "n": 250,
-        "e": 150,
+        "e": 50,
         "family": true,
         "shop": null
     },
