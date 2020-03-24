@@ -10,12 +10,26 @@ from gen.house import (
 from objects.person import Person
 from gen.person.name import last_name
 from src.cache import cached_property
+from flask import url_for
 
 class House:
     def __init__(self, seed, neighbourhood):
         self.seed = seed
         self.occupation = seed[-2]
         self.neighbourhood = neighbourhood
+
+    def __html__(self):
+        return f'<a href="{url_for("get_house", **self.url_package)}">{self.name}</a>'
+
+    @cached_property
+    def url_package(self):
+        return {
+            'town_name': self.seed[1],
+            'size': self.seed[2],
+            'neighbourhood': self.seed[3],
+            'house_type': self.seed[4],
+            'house_id': self.seed[5]
+        }
 
     @cached_property
     def ages(self):

@@ -25,13 +25,13 @@
             <h2>{{ town.classes[name]['shop'] }}s</h4>
             {% for house in town.iter_houses(name, maximum=10) %}
                 <p>
-                    <a href="#">{{ house.name }}</a>, owned by {{ house.inhabitants[0].name }}
+                    {{ house }}, owned by {{ house.inhabitants[0] }}
                 </p>
             {% endfor %}
             {% if town.classes[name]['total'] > 10 %}
                 <p>
                     <a href="{{ url_for('show_all_stores', town_name=town.name, size=town.size, store_type=name) }}">
-                        View all {{ name.lower() }}s >>
+                        View all {{ town.classes[name]['shop'].lower() }}s >>
                     </a>
                 </p>
             {% endif %}

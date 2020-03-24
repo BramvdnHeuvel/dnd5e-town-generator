@@ -5,6 +5,7 @@ from gen.person import (
 )
 from src.cache import cached_property
 from gen.house import schedule
+from flask import url_for
 
 class Person:
     def __init__(self, seed, house):
@@ -17,6 +18,20 @@ class Person:
 
         self.is_mature = (self.fi < 2)
     
+    def __html__(self):
+        return f'<a href="{url_for("get_npc", **self.url_package)}">{self.name}</a>'
+
+    @cached_property
+    def url_package(self):
+        return {
+            'town_name': self.seed[1],
+            'size': self.seed[2],
+            'neighbourhood': self.seed[3],
+            'class_name': self.seed[4],
+            'house': self.seed[5],
+            'person': self.seed[6]
+        }
+
     @cached_property
     def age(self):
         return self.house.ages[self.fi]
