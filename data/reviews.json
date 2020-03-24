@@ -1,0 +1,16 @@
+{
+    "Blacksmith": [
+        "The weapons made in the <SHOP> are known all throughout <TOWN> for their durability. The secret? <OWNER> doesn't uses regular metals. Instead, the weapons are made with an alloy that contains the remains of a Magma Mephit. This prevents the weapons from breaking, but also appears to prevent corrosion.",
+        "Although the tools made in the <SHOP> are made very well, it is known that not many purchase anything that isn't overpriced. The owner of the shop, <OWNER>, is known for being a great salesman, and regularly manages to sell items for a higher price than that they are worth.",
+        "The <SHOP> is a new store that had opened just recently. When <OWNER> moved to <TOWN> only a handful of days ago, they decided it would be best to earn their money by selling weapons and tools.",
+        "The <SHOP> is known for being involved with business from the underground. You'll often spot shady customers buying goods for suspicious reasons here. The owner of the shop, <OWNER>, does not feel the need to have conversations with their customers either. You simply get what you want, and then you leave the store."
+    ],
+    "Salesman": [
+        "The <SHOP> is one of <TOWN>'s favourite shops! Their products aren't always the best, but you'll always get your money's worth.",
+        "Not many who live in <TOWN> would visit the <SHOP> for their pleasure. The owner of the shop is known for acting in a strange manner that people do not trust."
+    ],
+    "Magic merchant": [
+        "Besides being a shop, the <SHOP> is also known for the enthusiastic owner, <OWNER>, who entertains children on the street when no-one is looking for any goods to buy in their shop. The shop is filled with magical items and small trinkets that aren't always as useful, but are fun to play around with.",
+        "The <SHOP> is a high-standard jewelry shop that excels in magical jewelry. While their prices are often immensely high, people come from far and wide to visit the store and to have a look at <OWNER>'s magical jewels."
+    ]
+}

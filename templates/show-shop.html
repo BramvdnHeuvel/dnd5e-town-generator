@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ shop.name }}</title>
+</head>
+<body>
+    <a href="{{ url_for('show_town', town_name=town.name, size=town.size) }}"><< Go back to main town.</a>
+
+    <h3>This store is owned by {{ shop.inhabitants[0] }}.</h3>
+    <h4>Reputation</h4>
+    <p style="width: 50%;">{{ shop.extra_data['review'] }}</p>
+</body>
+</html>

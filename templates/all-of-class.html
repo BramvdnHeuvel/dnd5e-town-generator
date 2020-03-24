@@ -18,11 +18,11 @@
     <table id="class-table" width="90%" border="1">
         <thead>
             <th onclick="sortTable(0, 'class-table', false)">Name</th>
-            <th onclick="sortTable(1, 'class-table', true)">Level</th>
-            <th onclick="sortTable(2, 'class-table', false)">Class</th>
+            <th onclick="sortTable(1, 'class-table', true)">Age</th>
+            <th onclick="sortTable(2, 'class-table', false)">Race</th>
             <th onclick="sortTable(3, 'class-table', false)">Gender</th>
-            <th onclick="sortTable(4, 'class-table', false)">Race</th>
-            <th onclick="sortTable(5, 'class-table', true)">Age</th>
+            <th onclick="sortTable(4, 'class-table', false)">Class</th>
+            <th onclick="sortTable(5, 'class-table', true)">Level</th>
         </thead>
         <tbody>
             {% for person in people %}
@@ -35,11 +35,11 @@
                                                 house = person.seed[5],
                                                 person = person.seed[6]
                                             ) }}">{{ person.name }}</a></td>
-                    <td>{{ person.level }}</td>
-                    <td>{{ person.class_name.capitalize() }}</td>
-                    <td>{{ person.gender }}</td>
-                    <td>{{ person.race }}</td>
                     <td>{{ person.age }}</td>
+                    <td>{{ person.race }}</td>
+                    <td>{{ person.gender }}</td>
+                    <td>{{ person.class_name.capitalize() }}</td>
+                    <td>{{ person.level }}</td>
                 </tr>
             {% endfor %}
         </tbody>

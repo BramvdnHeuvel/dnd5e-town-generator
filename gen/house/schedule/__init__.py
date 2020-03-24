@@ -1,6 +1,7 @@
 import random
 
 def get_schedule(seed, works_in_tavern=False):
+    random.seed(str(seed))
     return [
         (build_time_string(i), s) for i, s in zip(
             range(24), build_schedule(works_in_tavern)
@@ -20,7 +21,8 @@ def translate_schedule(schedule, is_mature, tavern_name):
         0: "Asleep",
         1: "Doing nothing in particular",
         2: "At work" if is_mature else "Playing outside",
-        3: f"Eating food at the {tavern_name}"
+        3: f"Eating food at the {tavern_name}",
+        4: f"Hanging out in the {tavern_name}" if is_mature else "Asleep"
     }
     
     return [(s[0], activity[c]) for s, c in zip(schedule, child_filter())]
@@ -28,13 +30,13 @@ def translate_schedule(schedule, is_mature, tavern_name):
 
 def build_schedule(works_in_tavern):
     if works_in_tavern:
-        wake_up = random.randint(8, 10)
+        wake_up = random.randint(9, 10)
         work = random.randint(10, 11)
         
         for i in range(24):
-            if (i < wake_up and i >= ((wake_up+16)%24)) or i >= wake_up:
+            if (i < wake_up and i >= random.randint(3, 4)) or i >= wake_up:
                 yield 0  # Asleep
-            elif i >= work or i < ((work+13)%24):
+            elif i >= work or i < 3:
                 yield 2  # At work
             else:
                 yield 1  # Doing nothing in particular
@@ -47,7 +49,7 @@ def build_schedule(works_in_tavern):
         dinner = work + 9
 
         for i in range(24):
-            if i < wake_up or i >= (wake_up + 16):
+            if (i < wake_up and i >= ((wake_up + 16)%24)) or i >= (wake_up + 16):
                 yield 0  # Asleep
             elif i in [lunch, dinner]:
                 yield 3 # Eating food at the taven
@@ -63,12 +65,14 @@ def build_schedule(works_in_tavern):
         dinner = work + 7
 
         for i in range(24):
-            if i < wake_up or i >= (wake_up + 16):
+            if (i < wake_up and i >= min((wake_up + 16)%24, 3)) or i >= (wake_up + 16):
                 yield 0  # Asleep
             elif i in [lunch, dinner]:
                 yield 3 # Eating food at the taven
             elif i >= work and i < dinner:
                 yield 2 # At work
+            elif (i < ((wake_up + 16)%24) and i < 3) or i > dinner:
+                yield 4 # Hanging out in the tavern
             else:
                 yield 1 # Doing nothing in particular 
 

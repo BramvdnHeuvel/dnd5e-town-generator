@@ -15,7 +15,7 @@
     {% if town.classes[htype]['total'] > 0 %}
         <h3>All {{ htype.lower() }}s in {{ town.name }}</h3>
         {% for house in town.iter_houses(htype) %}
-            <p><a href="#">{{ house.name }}</a>, owned by {{ house.inhabitants[0].name }}</p>
+            <p>{{ house }}, owned by {{ house.inhabitants[0] }}</p>
         {% endfor %}
     {% else %}
         <h4>{{ town.name }} does not have any {{ htype.lower() }}s.</h4>

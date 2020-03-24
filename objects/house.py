@@ -36,6 +36,10 @@ class House:
         return age.get_ages(self.seed + ('ages',), self.inhabitant_amount, self.race)
     
     @cached_property
+    def extra_data(self):
+        return type_data.get_house_type_data(self.seed + ('extra_data',), self)
+
+    @cached_property
     def family_name(self):
         return last_name(self.seed + ('family-name',), self.race)
     

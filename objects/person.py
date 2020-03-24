@@ -49,7 +49,7 @@ class Person:
     
     @cached_property
     def inventory(self):
-        return inventory.get_inventory(self.seed + ('inventory',))
+        return inventory.get_inventory(self.seed + ('inventory',), self.is_mature)
 
     @cached_property
     def level(self):
@@ -57,7 +57,7 @@ class Person:
 
     @cached_property
     def schedule(self):
-        return schedule.translate_schedule(self.house.family_schedule, self.is_mature, self.house.neighbourhood.houses['Barkeep'][0].name)
+        return schedule.translate_schedule(self.house.family_schedule, self.is_mature, self.house.neighbourhood.houses['Barkeep'][0].extra_data['link'])
     
 
     def find(self, obj_type, seed):

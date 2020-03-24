@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,34 +9,97 @@
     <script src="/static/sort.js"></script>
     <link rel="stylesheet" href="/static/marg.css" type="text/css">
 </head>
+
 <body>
-    <p><a href="{{ url_for('show_town', town_name=town.name, size=town.size ) }}"><< Go back to main town.</a></p>
-
+    <p><a href="{{ url_for('show_town', town_name=town.name, size=town.size ) }}">
+            << Go back to main town.</a> </p> 
+            
     {% if person == None%}
-
-        <p>This person does not exist.</p>
-
+    <p>This person does not exist.</p>
     {% else %}
+    <p><a href="{{ url_for('show_people_of_class', town_name=town.name, size=town.size, class_name=person.class_name) }}">
+        << Go back to the {{ person.class_name.lower() }} list.
+    </a></p>
 
-        <table width="90%" border="1">
-            <tbody>
-                <tr><td>Name</td><td>{{ person.name }}</td></tr>
-                <tr><td>Level</td><td>{{ person.level }}</td></tr>
-                <tr><td>Class</td><td>{{ person.class_name.capitalize() }}</td></tr>
-                <tr><td>Gender</td><td>{{ person.gender }}</td></tr>
-                <tr><td>Race</td><td>{{ person.race }}</td></tr>
-                <tr><td>Age</td><td>{{ person.age }}</td></tr>
-            </tbody>
-        </table>
+    <table width="40%" border="1">
+        <tbody>
+            <tr>
+                <td>Name</td>
+                <td>{{ person.name }}</td>
+            </tr>
+            <tr>
+                <td>Level</td>
+                <td>{{ person.level }}</td>
+            </tr>
+            <tr>
+                <td>Class</td>
+                <td>{{ person.class_name.capitalize() }}</td>
+            </tr>
+            <tr>
+                <td>Gender</td>
+                <td>{{ person.gender }}</td>
+            </tr>
+            <tr>
+                <td>Race</td>
+                <td>{{ person.race }}</td>
+            </tr>
+            <tr>
+                <td>Age</td>
+                <td>{{ person.age }}</td>
+            </tr>
+            <tr>
+                <td>Inventory</td>
+                <td>{{ person.inventory }}</td>
+            </tr>
+        </tbody>
+    </table>
 
-        <h2>Schedule</h2>
-        <table width="30%" border="1">
-            <tbody>
-                {% for s in person.schedule %}
-                    <tr><td>{{ s[0] }}</td><td>{{ s[1] }}</td></tr>
-                {% endfor %}
-            </tbody>
-        </table>
+
+    {% if person.house.inhabitant_amount > 1 %}
+    <h2>Family</h2>
+    {% if person.fi < 2 %}
+    <p>
+        <b>Married to: </b>{{ person.house.inhabitants[1-person.fi] }}
+    </p>
+    <p>
+        {% if person.house.inhabitant_amount > 2 %}
+        <b>Children: </b>
+        {% for child in person.house.inhabitants %}
+        {% if child.fi > 1 %}
+            {{ child }}
+        {% endif %}
+        {% endfor %}
+        {% endif %}
+    </p>
+    {% else %}
+    <p>
+        <b>Parents: </b>
+        {{ person.house.inhabitants[0] }}
+        {{ person.house.inhabitants[1] }}
+    </p>
+    <p>
+        <b>Siblings: </b>
+        {% for sibling in person.house.inhabitants %}
+        {% if sibling.fi > 1 and sibling.fi != person.fi %}
+            {{ sibling }}
+        {% endif %}
+        {% endfor %}
+    </p>
+    {% endif %}
+    {% endif %}
+
+    <h2>Schedule</h2>
+    <table width="30%" border="1">
+        <tbody>
+            {% for s in person.schedule %}
+            <tr>
+                <td>{{ s[0] }}</td>
+                <td>{{ s[1] | safe }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
     {% endif %}
 </body>
+
 </html>
