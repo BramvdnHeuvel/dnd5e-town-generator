@@ -49,7 +49,7 @@ def build_schedule(works_in_tavern):
         dinner = work + 9
 
         for i in range(24):
-            if (i < wake_up and i >= ((wake_up + 16)%24)) or i >= (wake_up + 16):
+            if (wake_up + 16 > 24 and i < wake_up and i >= (wake_up + 16) % 24) or i >= wake_up + 16 or (wake_up + 16 <= 24 and i < wake_up):
                 yield 0  # Asleep
             elif i in [lunch, dinner]:
                 yield 3 # Eating food at the taven
