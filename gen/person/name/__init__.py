@@ -1,5 +1,6 @@
 from gen.person.name import (
     aarakocra,
+    aasimar,
     dragonborn,
     dwarf,
     elf,
@@ -13,6 +14,7 @@ import random
 
 RACE_BY_MODULE = {
     'aarakocra'     :   aarakocra,
+    'aasimar'       :   aasimar,
     'dragonborn'    :   dragonborn,
     'dwarf'         :   dwarf,
     'elf'           :   elf,
