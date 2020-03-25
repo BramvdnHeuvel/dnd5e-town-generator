@@ -1,0 +1,12 @@
+body {
+    background-color: antiquewhite;
+}
+
+body #tbox {
+    background-color: burlywood;
+    padding: 5px;
+}
+
+h1 {
+    margin-top: 0;
+}

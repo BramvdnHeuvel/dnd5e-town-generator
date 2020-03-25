@@ -4,6 +4,10 @@ from src.extractor import iter_over_people
 
 app = Flask(__name__)
 
+@app.route('/')
+def town_menu():
+    return render_template('index.html')
+
 @app.route('/town/<town_name>/<size>')
 def show_town(town_name, size):
     return render_template('town.html', town=Village(town_name, size))
