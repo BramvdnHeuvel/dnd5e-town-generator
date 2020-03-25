@@ -6,7 +6,6 @@
     <title>Town Generator</title>
     <link rel="stylesheet" type="text/css" href="/static/marg.css">
     <link rel="stylesheet" type="text/css" href="/static/intro.css">
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </head>
 <body>
     <div id="tbox">
@@ -16,14 +15,98 @@
             random towns for the fifth edition of Dungeons and Dragons.
         </p>
         <p>
-            <b>Create your own town here:</b>
-            <input type="text" placeholder="Town name">
-            <select name="size">
-                <option value="tiny">Tiny</option>
-                <option value="small">Small</option>
-                <option value="medium">Medium</option>
+            <form action="/" method="POST">
+                <b>Create your own town here:</b>
+                <input name="town_name" type="text" placeholder="Town name">
+                <select name="size">
+                    <option value="tiny">Tiny</option>
+                    <option value="small">Small</option>
+                    <option value="medium">Medium</option>
+                    <option value="average">Average</option>
+                    <option value="big">Big</option>
+                    <option value="huge">Huge</option>
+                </select>
+                <input type="submit" value="Generate">
+            </form>
+        </p>
+        <h2>Extra info</h2>
+        <p>
+            The following table shows the approximated populations of each size:
+        </p>
+        <table border="1">
+            <tbody>
+                <tr>
+                    <td>Tiny</td>
+                    <td>200 people</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Small</td>
+                    <td>900 people</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Medium</td>
+                    <td>2'000 people</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Average</td>
+                    <td>5.5K people</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Big</td>
+                    <td>20K people</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Huge</td>
+                    <td>50K people</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Humongous</td>
+                    <td>200K people</td>
+                    <td>PREMIUM only*</td>
+                </tr>
+                <tr>
+                    <td>Massive</td>
+                    <td>600K people</td>
+                    <td>PREMIUM only*</td>
+                </tr>
+                <tr>
+                    <td>Collossal</td>
+                    <td>2.5M people</td>
+                    <td>PREMIUM only*</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>
+            * Don't worry, I'm not going to ask for money. To prevent my server from being
+            constantly busy for one user only, you can only use these city sizes by taking
+            one of the following steps:
+        </p>
+        <ol>
+            <li>
+                <b>Run this server yourself.</b> The source code is open source, which means
+                you can edit the code, and have fun with it yourself! You can find 
+                <a href="https://github.com/BramvdnHeuvel/dnd5e-town-generator">the source code here.</a>
+            </li>
+            <li>
+                <b>Contact the server owner.</b> I might add a feature where people can log in
+                on their account and have special access to the server, with extra features and
+                bigger town sizes. I'd selectively add people, so make sure to
+                <a href="mailto:noordstar@bram.blmgroep.nl">contact me.</a>
+            </li>
+        </ol>
 
-            </select>
+        <h3>How does it work?</h3>
+        <p>
+            I built this project mostly during the first three months of 2020, as part of a personal project.
+            The town generator combines the town's name and the size into a "seed" to randomly generate all the information
+            in the town. There's some more information theoretical optimalizations involved to speed up the process,
+            but that's all.
         </p>
 
         <h2>Special thanks</h2>

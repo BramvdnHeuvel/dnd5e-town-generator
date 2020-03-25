@@ -6,9 +6,10 @@ NEIGHBOURHOOD_SIZE_TO_RANGE = {
     'medium':       ( 15,  20),
     'average':      ( 35,  45),
     'big':          ( 90, 140),
-    'huge':         (250, 400),
+    'huge':         (250, 470),
     'humongous':    (800, 999),
-    'massive':      (4000, 5000)
+    'massive':      (4000, 5000),
+    'colossal':     (16000, 20000)
 }
 
 def get_neighbourhood_amount(seed, size):

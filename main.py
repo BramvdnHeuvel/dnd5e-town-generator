@@ -1,14 +1,26 @@
-from flask import Flask, render_template, redirect, url_for, jsonify
+from flask import Flask, render_template, redirect, url_for, request
 from objects import Village, clean_tree, PASSWORD
 from src.extractor import iter_over_people
+from src.sanitizer import correct_size_only
 
 app = Flask(__name__)
 
-@app.route('/')
+@app.route('/', methods=['GET', 'POST'])
 def town_menu():
-    return render_template('index.html')
+    clean_tree()
+    if request.method == 'GET':
+        return render_template('index.html')
+
+    if 'town_name' in request.form and 'size' in request.form:
+        return redirect(url_for('show_town', 
+                                    town_name=request.form['town_name'], 
+                                    size=request.form['size']
+                                ))
+    else:
+        return render_template('index.html')
 
 @app.route('/town/<town_name>/<size>')
+@correct_size_only
 def show_town(town_name, size):
     return render_template('town.html', town=Village(town_name, size))
 
