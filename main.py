@@ -3,6 +3,7 @@ from objects import Village, clean_tree, PASSWORD
 from src.extractor import iter_over_people
 from src.sanitizer import correct_size_only
 from src.traffic import add_statistics
+from config import PREMIUM
 
 app = Flask(__name__)
 app.route = add_statistics(app.route)
@@ -11,7 +12,7 @@ app.route = add_statistics(app.route)
 def town_menu():
     clean_tree()
     if request.method == 'GET':
-        return render_template('index.html')
+        return render_template('index.html', is_premium=PREMIUM)
 
     if 'town_name' in request.form and 'size' in request.form:
         return redirect(url_for('show_town', 
@@ -19,7 +20,7 @@ def town_menu():
                                     size=request.form['size']
                                 ))
     else:
-        return render_template('index.html')
+        return render_template('index.html', is_premium=PREMIUM)
 
 @app.route('/town/<town_name>/<size>')
 @correct_size_only

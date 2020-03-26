@@ -25,6 +25,11 @@
                     <option value="average">Average</option>
                     <option value="big">Big</option>
                     <option value="huge">Huge</option>
+                    {% if is_premium == True %}
+                    <option value="humongous">Humongous</option>
+                    <option value="massive">Massive</option>
+                    <option value="colossal">Colossal</option>
+                    {% endif %}
                 </select>
                 <input type="submit" value="Generate">
             </form>
@@ -76,7 +81,7 @@
                     <td>PREMIUM only*</td>
                 </tr>
                 <tr>
-                    <td>Collossal</td>
+                    <td>Colossal</td>
                     <td>2.5M people</td>
                     <td>PREMIUM only*</td>
                 </tr>
