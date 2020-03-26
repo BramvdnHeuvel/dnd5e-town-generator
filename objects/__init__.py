@@ -1,14 +1,6 @@
 from objects.village import Village as VObject
+from config import SECRET as PASSWORD
 import time
-
-# Hey there! This is the generator's "password".
-PASSWORD = "CHANGE-ME"
-# The idea is that two users will only generate the exact same towns
-# if they use the exact same PASSWORD value.
-# Very useful if you're a DM and you don't want your players
-# to look up any data: if they use a different PASSWORD,
-# they'll generate a different city, even if they use
-# the same name and the same size.
 
 MANAGER = {}
 TIMES = {}
