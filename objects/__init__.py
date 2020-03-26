@@ -24,7 +24,13 @@ def Village(name, size):
 
 def clean_tree():
     # Clean memory: remove villages that haven't been inspected for a while.
+    to_remove = []
+
     for seed in MANAGER:
-        if (time.time() - TIMES[seed]) > (5 * 60):
-            del MANAGER[seed]
-            del TIMES[seed]
+        if (time.time() - TIMES[seed]) > 1: #(5 * 60):
+            to_remove.append(seed)
+    
+    for seed in to_remove:
+        print(f'Removing {seed}!')
+        del MANAGER[seed]
+        del TIMES[seed]

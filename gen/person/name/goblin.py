@@ -27,7 +27,7 @@ c = random.choice
 def male():
     if random.random() < 0.5:
         return (c(nm1)+c(nm2)+c(nm4)).capitalize()
-	return (c(nm1)+c(nm2)+c(nm3)+c(nm2)+c(nm4)).capitalize()
+    return (c(nm1)+c(nm2)+c(nm3)+c(nm2)+c(nm4)).capitalize()
 
 def female():
 	choice = random.randint(1, 3)

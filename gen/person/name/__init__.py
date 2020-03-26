@@ -6,7 +6,6 @@ from gen.person.name import (
     dragonborn,
     dwarf,
     elf,
-    genasi,
     gith,
     gnome,
     goblin,
@@ -29,20 +28,26 @@ from gen.person.name import (
     warforged,
     yuan_ti
 )
+from gen.person.name.genasi import (
+    air   as gair,
+    earth as gearth,
+    fire  as gfire,
+    water as gwater
+)
 import random
 
 RACE_BY_MODULE = {
     'aarakocra'         :   aarakocra,
     'aasimar'           :   aasimar,
-    'air genasi'        :   genasi.air,
+    'air genasi'        :   gair,
     'bugbear'           :   bugbear,
     'changeling'        :   changeling,
     'dragonborn'        :   dragonborn,
     'dwarf'             :   dwarf,
-    'earth genasi'      :   genasi.earth,
+    'earth genasi'      :   gearth,
     'elf'               :   elf,
     'firbolg'           :   elf,            # Use the same names as elves
-    'fire genasi'       :   genasi.fire,
+    'fire genasi'       :   gfire,
     'gith'              :   gith,
     'gnome'             :   gnome,
     'goblin'            :   goblin,
@@ -63,7 +68,7 @@ RACE_BY_MODULE = {
     'tortle'            :   tortle,
     'triton'            :   triton,
     'warforged'         :   warforged,
-    'water genasi'      :   genasi.water,
+    'water genasi'      :   gwater,
     'yuan-ti pureblood' :   yuan_ti
 }
 
