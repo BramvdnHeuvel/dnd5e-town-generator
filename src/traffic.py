@@ -1,7 +1,7 @@
 from time import strftime
 from functools import wraps
 from flask import request
-import traceback
+from objects import clean_tree
 
 def add_statistics(route_func):
     def app_route(rule, **options):
@@ -13,7 +13,10 @@ def add_statistics(route_func):
                 
                 log_to_today(strftime('[%Y-%b-%d %H:%M:%S] ') + request.path)
 
-                return func(*args, **kwargs)
+                output = func(*args, **kwargs)
+                clean_tree()
+                
+                return output
 
             route_func(rule, **options)(website_func)
         

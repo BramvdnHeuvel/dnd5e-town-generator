@@ -10,7 +10,6 @@ app.route = add_statistics(app.route)
 
 @app.route('/', methods=['GET', 'POST'])
 def town_menu():
-    clean_tree()
     if request.method == 'GET':
         return render_template('index.html', is_premium=PREMIUM)
 

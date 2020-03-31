@@ -19,7 +19,7 @@ def clean_tree():
     to_remove = []
 
     for seed in MANAGER:
-        if (time.time() - TIMES[seed]) > (5 * 60):
+        if (time.time() - TIMES[seed]) > (30):
             to_remove.append(seed)
     
     for seed in to_remove:
