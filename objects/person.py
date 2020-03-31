@@ -1,7 +1,8 @@
 from gen.person import (
     name,
     inventory,
-    level
+    level,
+    commoner_occupation
 )
 from src.cache import cached_property
 from gen.house import schedule
@@ -42,6 +43,12 @@ class Person:
             return 'Commoner'
         else:
             return self.house.occupation
+    
+    @cached_property
+    def fancy_class_name(self):
+        if self.class_name == 'Commoner' and self.fi == 0:
+            return commoner_occupation.get_occupation(self.seed + ('fancy_occupation',))
+        return self.class_name
 
     @cached_property
     def name(self):
