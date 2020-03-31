@@ -10,6 +10,7 @@
 </head>
 
 <body>
+    <p><a href="{{ url_for('town_menu') }}">Homepage</a></p>
     <h1>THE TOWN OF {{ town.name.upper() }}</h1>
 
     {% for name in town.classes %}
