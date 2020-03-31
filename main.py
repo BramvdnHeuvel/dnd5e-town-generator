@@ -3,6 +3,7 @@ from objects import Village, clean_tree, PASSWORD
 from src.extractor import iter_over_people
 from src.sanitizer import correct_size_only
 from src.traffic import add_statistics
+from src import contributors
 from config import PREMIUM
 
 app = Flask(__name__)
@@ -140,6 +141,40 @@ def tavern_guests_at_given_time(town_name, size, neighbourhood, tavern_id, time)
             return render_template('tavern-guests.html', town=town, tavern=tavern, g=guest_data)
     else:
         return 'The tavern is closed at this time.'
+
+@app.route('/contribute/review', methods=['GET', 'POST'])
+def add_review():
+    if request.method == 'GET':
+        return render_template('contribute/review.html', response=False, names=contributors.random_names())
+
+    if 'store-type' in request.form and 'description' in request.form:
+        if 'author' in request.form:
+            contributors.add_review(request.form['store-type'], request.form['description'], author=request.form['author'])
+        else:
+            contributors.add_review(request.form['store-type'], request.form['description'])
+        return render_template('contribute/review.html', response=True, names=contributors.random_names())
+    return render_template('contribute/review.html', response=False, names=contributors.random_names())
+
+@app.route('/contribute/food', methods=['GET', 'POST'])
+def add_food():
+    if request.method == 'GET':
+        return render_template('contribute/food.html', response=False)
+    
+    args = ['food', 'squalid', 'poor', 'modest', 'comfortable', 'wealthy', 'aristocratic', 'rarity']
+    for a in args:
+        if a not in request.form:
+            return render_template('contribute/food.html', response=False)
+ 
+    f = request.form
+    author = 'Unknown'
+    if 'author' in f:
+        author = f['author']
+
+    contributors.add_food(
+        f['food'], f['squalid'], f['poor'], f['modest'], f['comfortable'], f['wealthy'], f['aristocratic'], f['rarity'],
+        author=author
+    )
+    return render_template('contribute/food.html', response=True)
 
 if __name__ == '__main__':
     app.run(debug=True)

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/static/marg.css">
+    <link rel="stylesheet" type="text/css" href="/static/intro.css">
+    <title>Add store reviews</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="preVue">
+        <div id="tbox">
+            <p><a href="{{ url_for('town_menu') }}">Return to homepage</a></p>
+            {% if response %}
+            <h4 style="color: green;">Thank you for your submission!</h4>
+            <p style="color: green;">
+                To prevent profanity or other abusive texts from appearing in the generator,
+                the moderators will check your submission before it gets added to the website.
+                When it will, we will give you credit on the contributors page!
+            </p>
+            {% endif %}
+            <br>
+            <h1>Submit custom reviews</h1>
+            <p>
+                Don't you agree that there need to be more reviews?
+                Add your own suggestions here!
+            </p>
+            <form action="/contribute/review" method="POST">
+                <p>
+                    <b>Store type: </b>
+                    <select name="store-type" required>
+                        <option value="blacksmith">Blacksmith</option>
+                        <option value="general-store">General Store</option>
+                        <option value="magic-shop">Magic Shop</option>
+                    </select>
+                </p>
+                
+                <textarea 
+                    v-model="desc" 
+                    name="description"
+                    style="width: 50%;height: 10em;"
+                    required
+                >
+                </textarea>
+
+                <p>
+                    <b>Author: </b>
+                    <input type="text" name="author"><br>
+                    <em>Fill this one in to get credit.</em>
+                </p>
+
+                <input type="submit" value="Send suggestion">
+            </form>
+            <p v-if="!showHelp" v-on:click="showHelp = true"><a href="#">Extra tips</a></p>
+            <p v-else v-on:click="showHelp = false">
+                &lt;TOWN&gt; - Insert the town's name.<br>
+                &lt;SHOP&gt; - Insert the shop's name.<br>
+                &lt;OWNER&gt; - Insert the owner's name.
+            </p>
+            <h3>
+                Town preview:
+            </h3>
+            {% raw %}
+                <p v-for="dPart in filledInDesc">
+                    {{ dPart }}
+                </p>
+            {% endraw %}
+        </div>
+    </div>
+    <script>
+        const townName = "{{ names['town'] }}";
+        const shopName = "{{ names['shop'] }}";
+        const ownerName = "{{ names['owner'] }}";
+    </script>
+    <script src="/static/review-preview.js"></script>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/static/marg.css">
+    <link rel="stylesheet" type="text/css" href="/static/intro.css">
+    <title>Add store reviews</title>
+</head>
+<body>
+    <div id="preVue">
+        <div id="tbox">
+            <p><a href="{{ url_for('town_menu') }}">Return to homepage</a></p>
+            {% if response %}
+            <h4 style="color: green;">Thank you for your submission!</h4>
+            <p style="color: green;">
+                To prevent profanity or other abusive texts from appearing in the generator,
+                the moderators will check your submission before it gets added to the website.
+                When it will, we will give you credit on the contributors page!
+            </p>
+            {% endif %}
+            <br>
+            <h1>Submit custom reviews</h1>
+            <p>
+                Don't you agree that there need to be more reviews?
+                Add your own suggestions here!
+            </p>
+            <form action="/contribute/food" method="POST">
+                
+                <table border="1">
+                    <thead>
+                        <th>Food Name</th>
+                        <th>Squalid</th>
+                        <th>Poor</th>
+                        <th>Modest</th>
+                        <th>Comfortable</th>
+                        <th>Wealthy</th>
+                        <th>Aristocratic</th>
+                        <th>Availability</th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Mug of Dwarven Ale</td>
+                            <td>3cp</td>
+                            <td>3cp</td>
+                            <td>4cp</td>
+                            <td>4cp</td>
+                            <td>6cp</td>
+                            <td>8cp</td>
+                            <td>45%</td>
+                        </tr>
+                        <tr>
+                            <td>Banquet (per person)</td>
+                            <td>7gp</td>
+                            <td>8gp</td>
+                            <td>10gp</td>
+                            <td>10gp</td>
+                            <td>12gp</td>
+                            <td>25gp</td>
+                            <td>20%</td>
+                        </tr>
+                        <tr>
+                            <td>Bread, loaf</td>
+                            <td>1cp</td>
+                            <td>2cp</td>
+                            <td>2cp</td>
+                            <td>2cp</td>
+                            <td>5cp</td>
+                            <td>1sp</td>
+                            <td>90%</td>
+                        </tr>
+                        <tr>
+                            <td>Inn stay (per day)</td>
+                            <td>7cp</td>
+                            <td>1sp</td>
+                            <td>5sp</td>
+                            <td>8sp</td>
+                            <td>2gp</td>
+                            <td>4gp</td>
+                            <td>100%</td>
+                        </tr>
+                        <tr>
+                            <td><input type="text" name="food"></td>
+                            <td><input type="text" name="squalid"></td>
+                            <td><input type="text" name="poor"></td>
+                            <td><input type="text" name="modest"></td>
+                            <td><input type="text" name="comfortable"></td>
+                            <td><input type="text" name="wealthy"></td>
+                            <td><input type="text" name="aristocratic"></td>
+                            <td><input type="text" name="rarity"></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p>
+                    <b>Author: </b>
+                    <input type="text" name="author"><br>
+                    <em>Fill this one in to get credit.</em>
+                </p>
+
+                <input type="submit" value="Send suggestion">
+            </form>
+        </div>
+    </div>
+</body>
+</html>
