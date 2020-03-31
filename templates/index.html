@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Town Generator</title>
+    <meta property="og:title" content="D&D Town Generator"/>
+    <meta property="og:description" content="Create your own D&D Town with the Noordstar D&D Town Generator."/>
+    <meta property="og:link" content="http://town.noordstar.me"/>
     <link rel="stylesheet" type="text/css" href="/static/marg.css">
     <link rel="stylesheet" type="text/css" href="/static/intro.css">
 </head>
@@ -17,8 +20,8 @@
         <p>
             <form action="/" method="POST">
                 <b>Create your own town here:</b>
-                <input name="town_name" type="text" placeholder="Town name">
-                <select name="size">
+                <input name="town_name" type="text" placeholder="Town name" required>
+                <select name="size" required>
                     <option value="tiny">Tiny</option>
                     <option value="small">Small</option>
                     <option value="medium">Medium</option>
@@ -114,9 +117,10 @@
             but that's all.
         </p>
 
-        <h2>Special thanks</h2>
+        <h2>Special thanks to</h2>
         <ul>
             <li><a href="https://www.fantasynamegenerators.com/">FantasyNameGenerators.com</a></li>
+            <li>Me, <a href="http://www.noordstar.me">the developer</a>.</li>
         </ul>
     </div>
 </body>
