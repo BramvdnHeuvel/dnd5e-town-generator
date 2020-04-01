@@ -1,13 +1,19 @@
-from flask import Flask, render_template, redirect, url_for, request
+from flask import Flask, render_template, redirect, url_for, request, send_from_directory
 from objects import Village, clean_tree, PASSWORD
 from src.extractor import iter_over_people
 from src.sanitizer import correct_size_only
 from src.traffic import add_statistics
 from src import contributors
 from config import PREMIUM
+import os
 
 app = Flask(__name__)
 app.route = add_statistics(app.route)
+
+@app.route('/favicon.ico')
+def favicon():
+    return send_from_directory(os.path.join(app.root_path, 'static'),
+                               'icon/favicon.ico', mimetype='image/vnd.microsoft.icon')
 
 @app.route('/', methods=['GET', 'POST'])
 def town_menu():
