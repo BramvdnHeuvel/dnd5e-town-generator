@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ shop.name }}</title>
+    <meta name="description" content="This is the {{ shop.name }}, a {{ shop.occupation }} in the town called {{ town.name }}, created by the Noordstar D&D Town Generator.">
+    <meta property="og:title" content="{{ town.name }}'s shop {{ shop.name }}"/>
+    <meta property="og:description" content="{{ shop.name }}, a {{ shop.occupation }} in the town {{ town.name }}."/>
+    <link rel="shortcut icon" href="http://town.noordstar.me/favicon.ico" type="image/x-icon" />
     {% include "parts/icon.html" %}
 </head>
 <body>

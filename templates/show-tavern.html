@@ -3,7 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% if tavern == None %}Unknown tavern{% else %}Tavern {{ tavern.name }}{% endif %}</title>
+
+    {% if tavern == None %}
+        <title>Unknown tavern</title>
+    {% else %}
+        <title>Tavern {{ tavern.name }}</title>
+        <meta name="description" content="This is the {{ tavern.name }}, a tavern in the town called {{ town.name }}, created by the Noordstar D&D Town Generator.">
+        <meta property="og:title" content="{{ town.name }}'s tavern {{ tavern.name }}"/>
+        <meta property="og:description" content="{{ tavern.name }}, a tavern in the town {{ town.name }}."/>
+        <link rel="shortcut icon" href="http://town.noordstar.me/favicon.ico" type="image/x-icon" />
+    {% endif %}
     {% include "parts/icon.html" %}
 </head>
 <body>

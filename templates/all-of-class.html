@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Class {{ class_name }}</title>
+    <meta name="description" content="This is a list of {{ class_name }}s in {{ town.name }}, created by the Noordstar D&D Town Generator.">
+    <meta property="og:title" content="{{ town.name }}'s {{ class_name }}s"/>
+    <meta property="og:description" content="A list of {{ class_name }}s from {{ town.name }}."/>
+    <link rel="shortcut icon" href="http://town.noordstar.me/favicon.ico" type="image/x-icon" />
     {% include "parts/icon.html" %}
     <script src="/static/sort.js"></script>
     <link rel="stylesheet" href="/static/marg.css" type="text/css">
