@@ -2,12 +2,9 @@ import json, time, random
 from gen.person.name import get_name_from_race
 from gen.house.name import get_house_name
 
-with open('data/contributions/reviews.json', 'r') as open_file:
-    REVIEWS = json.load(open_file)
-with open('data/contributions/food.json', 'r') as open_file:
-    FOOD = json.load(open_file)
-
 def add_review(shop_type, review, author='Unknown'):
+    with open('data/contributions/reviews.json', 'r') as open_file:
+        REVIEWS = json.load(open_file)
     REVIEWS.append({
         'shop': shop_type,
         'review': review,
@@ -17,6 +14,8 @@ def add_review(shop_type, review, author='Unknown'):
         json.dump(REVIEWS, write_file, ensure_ascii=True, indent=4)
 
 def add_food(food_name, squalid, poor, modest, comfortable, wealthy, aristocratic, rarity, author='Unknown'):
+    with open('data/contributions/food.json', 'r') as open_file:
+        FOOD = json.load(open_file)
     FOOD.append({
         'food': food_name,
         'prices': {
@@ -32,6 +31,9 @@ def add_food(food_name, squalid, poor, modest, comfortable, wealthy, aristocrati
     })
     with open('data/contributions/food.json', 'w') as write_file:
         json.dump(FOOD, write_file, ensure_ascii=True, indent=4)
+
+def get():
+    return json.load(open('data/contributions/contributors.json', 'r'))
 
 def random_names():
     random.seed(time.time())

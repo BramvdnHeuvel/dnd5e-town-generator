@@ -87,6 +87,50 @@
             "Aristocratic": "5sp"
         }
     },
+    "Chili": {
+        "chanceOfBeingAvailable": 0.2,
+        "prices": {
+            "Squalid": "5cp",
+            "Poor": "7cp",
+            "Modest": "12cp",
+            "Comfortable": "4sp",
+            "Wealthy": "20sp",
+            "Aristocratic": "2gp"
+        }
+    },
+    "Food leftovers": {
+        "chanceOfBeingAvailable": 0.1,
+        "prices": {
+            "Squalid": "1cp",
+            "Poor": "1cp",
+            "Modest": "2cp",
+            "Comfortable": "2cp",
+            "Wealthy": "3cp",
+            "Aristocratic": "4cp"
+        }
+    },
+    "Soup": {
+        "chanceOfBeingAvailable": 0.6,
+        "prices": {
+            "Squalid": "2cp",
+            "Poor": "2cp",
+            "Modest": "3cp",
+            "Comfortable": "3cp",
+            "Wealthy": "5cp",
+            "Aristocratic": "5cp"
+        }
+    },
+    "Sweetroll": {
+        "chanceOfBeingAvailable": 0.35,
+        "prices": {
+            "Squalid": "1cp",
+            "Poor": "1cp",
+            "Modest": "2cp",
+            "Comfortable": "2cp",
+            "Wealthy": "4cp",
+            "Aristocratic": "8cp"
+        }
+    },
     "Various ferns, from fiddleheads to stewed broadleaves": {
         "chanceOfBeingAvailable": 0.3,
         "prices": {
@@ -129,6 +173,17 @@
             "Comfortable": "4sp",
             "Wealthy": "6sp",
             "Aristocratic": "1gp"
+        }
+    },
+    "Vegetable Stew": {
+        "chanceOfBeingAvailable": 0.8,
+        "prices": {
+            "Squalid": "1cp",
+            "Poor": "2cp",
+            "Modest": "2cp",
+            "Comfortable": "3cp",
+            "Wealthy": "5cp",
+            "Aristocratic": "1sp"
         }
     },
     "Common Wine (pitcher)": {
@@ -184,6 +239,292 @@
             "Comfortable": "3gp",
             "Wealthy": "3gp",
             "Aristocratic": "5gp"
+        }
+    },
+    "Dwarven Spirit (bottle)": {
+        "chanceOfBeingAvailable": 0.05,
+        "prices": {
+            "Squalid": "1gp",
+            "Poor": "1gp",
+            "Modest": "2gp",
+            "Comfortable": "2gp",
+            "Wealthy": "3gp",
+            "Aristocratic": "3gp"
+        }
+    },
+    "Enchilada": {
+        "chanceOfBeingAvailable": 0.15,
+        "prices": {
+            "Squalid": "5cp",
+            "Poor": "5cp",
+            "Modest": "1sp",
+            "Comfortable": "3sp",
+            "Wealthy": "8sp",
+            "Aristocratic": "2gp"
+        }
+    },
+    "Hardtack": {
+        "chanceOfBeingAvailable": 0.25,
+        "prices": {
+            "Squalid": "1cp",
+            "Poor": "1cp",
+            "Modest": "2cp",
+            "Comfortable": "2cp",
+            "Wealthy": "3cp",
+            "Aristocratic": "5cp"
+        }
+    },
+    "Mutton Pie": {
+        "chanceOfBeingAvailable": 0.09,
+        "prices": {
+            "Squalid": "2sp",
+            "Poor": "4sp",
+            "Modest": "5sp",
+            "Comfortable": "8sp",
+            "Wealthy": "2gp",
+            "Aristocratic": "10gp"
+        }
+    },
+    "Cup of Water": {
+        "chanceOfBeingAvailable": 0.5,
+        "prices": {
+            "Squalid": "1cp",
+            "Poor": "1cp",
+            "Modest": "1cp",
+            "Comfortable": "2cp",
+            "Wealthy": "3cp",
+            "Aristocratic": "4cp"
+        }
+    },
+    "Chicken Livers": {
+        "chanceOfBeingAvailable": 0.18,
+        "prices": {
+            "Squalid": "4cp",
+            "Poor": "9cp",
+            "Modest": "2sp",
+            "Comfortable": "3sp",
+            "Wealthy": "5sp",
+            "Aristocratic": "8sp"
+        }
+    },
+    "Chicken Gizzards": {
+        "chanceOfBeingAvailable": 0.24,
+        "prices": {
+            "Squalid": "2cp",
+            "Poor": "5cp",
+            "Modest": "15cp",
+            "Comfortable": "2sp",
+            "Wealthy": "4sp",
+            "Aristocratic": "6sp"
+        }
+    },
+    "Honey Bun": {
+        "chanceOfBeingAvailable": 0.08,
+        "prices": {
+            "Squalid": "8cp",
+            "Poor": "1sp",
+            "Modest": "4sp",
+            "Comfortable": "8sp",
+            "Wealthy": "2gp",
+            "Aristocratic": "5gp"
+        }
+    },
+    "Cattail Root Mash": {
+        "chanceOfBeingAvailable": 0.05,
+        "prices": {
+            "Squalid": "3cp",
+            "Poor": "5cp",
+            "Modest": "9cp",
+            "Comfortable": "2sp",
+            "Wealthy": "3sp",
+            "Aristocratic": "5sp"
+        }
+    },
+    "Gooseberry Pie": {
+        "chanceOfBeingAvailable": 0.09,
+        "prices": {
+            "Squalid": "2sp",
+            "Poor": "2sp",
+            "Modest": "3sp",
+            "Comfortable": "7sp",
+            "Wealthy": "3gp",
+            "Aristocratic": "7gp"
+        }
+    },
+    "Popcorn": {
+        "chanceOfBeingAvailable": 0.04,
+        "prices": {
+            "Squalid": "3cp",
+            "Poor": "6cp",
+            "Modest": "1sp",
+            "Comfortable": "4sp",
+            "Wealthy": "2gp",
+            "Aristocratic": "6gp"
+        }
+    },
+    "Rice Pilaf": {
+        "chanceOfBeingAvailable": 0.4,
+        "prices": {
+            "Squalid": "4cp",
+            "Poor": "8cp",
+            "Modest": "3sp",
+            "Comfortable": "7sp",
+            "Wealthy": "2gp",
+            "Aristocratic": "6gp"
+        }
+    },
+    "Curry Chicken": {
+        "chanceOfBeingAvailable": 0.055,
+        "prices": {
+            "Squalid": "5cp",
+            "Poor": "1sp",
+            "Modest": "5sp",
+            "Comfortable": "7sp",
+            "Wealthy": "2gp",
+            "Aristocratic": "9gp"
+        }
+    },
+    "Curry Potatoes": {
+        "chanceOfBeingAvailable": 0.055,
+        "prices": {
+            "Squalid": "2cp",
+            "Poor": "5cp",
+            "Modest": "1sp",
+            "Comfortable": "6sp",
+            "Wealthy": "2gp",
+            "Aristocratic": "3gp"
+        }
+    },
+    "Fried Dumplings": {
+        "chanceOfBeingAvailable": 0.28,
+        "prices": {
+            "Squalid": "4cp",
+            "Poor": "9cp",
+            "Modest": "4sp",
+            "Comfortable": "9sp",
+            "Wealthy": "4gp",
+            "Aristocratic": "5gp"
+        }
+    },
+    "Steamed Dumplings": {
+        "chanceOfBeingAvailable": 0.07,
+        "prices": {
+            "Squalid": "2cp",
+            "Poor": "6cp",
+            "Modest": "2sp",
+            "Comfortable": "6sp",
+            "Wealthy": "2gp",
+            "Aristocratic": "4gp"
+        }
+    },
+    "Gin Reaper": {
+        "chanceOfBeingAvailable": 0.1,
+        "prices": {
+            "Squalid": "5cp",
+            "Poor": "5cp",
+            "Modest": "6cp",
+            "Comfortable": "6cp",
+            "Wealthy": "8cp",
+            "Aristocratic": "9cp"
+        }
+    },
+    "Dog Sausage": {
+        "chanceOfBeingAvailable": 0.01,
+        "prices": {
+            "Squalid": "2cp",
+            "Poor": "3cp",
+            "Modest": "3cp",
+            "Comfortable": "4cp",
+            "Wealthy": "6cp",
+            "Aristocratic": "8cp"
+        }
+    },
+    "Spiced Potatoes": {
+        "chanceOfBeingAvailable": 0.14,
+        "prices": {
+            "Squalid": "1cp",
+            "Poor": "2cp",
+            "Modest": "2cp",
+            "Comfortable": "3cp",
+            "Wealthy": "5cp",
+            "Aristocratic": "8cp"
+        }
+    },
+    "Roast Mutton": {
+        "chanceOfBeingAvailable": 0.2,
+        "prices": {
+            "Squalid": "4cp",
+            "Poor": "4cp",
+            "Modest": "5cp",
+            "Comfortable": "5cp",
+            "Wealthy": "8cp",
+            "Aristocratic": "2sp"
+        }
+    },
+    "Mushroom Stew": {
+        "chanceOfBeingAvailable": 0.3,
+        "prices": {
+            "Squalid": "2cp",
+            "Poor": "2cp",
+            "Modest": "3cp",
+            "Comfortable": "3cp",
+            "Wealthy": "5cp",
+            "Aristocratic": "2sp"
+        }
+    },
+    "Nut-mix (small bowl)": {
+        "chanceOfBeingAvailable": 0.1,
+        "prices": {
+            "Squalid": "2cp",
+            "Poor": "3cp",
+            "Modest": "4cp",
+            "Comfortable": "4cp",
+            "Wealthy": "6cp",
+            "Aristocratic": "6cp"
+        }
+    },
+    "Calamari": {
+        "chanceOfBeingAvailable": 0.015,
+        "prices": {
+            "Squalid": "2cp",
+            "Poor": "2cp",
+            "Modest": "3cp",
+            "Comfortable": "4cp",
+            "Wealthy": "7cp",
+            "Aristocratic": "9cp"
+        }
+    },
+    "Fish with Baked Potato": {
+        "chanceOfBeingAvailable": 0.045,
+        "prices": {
+            "Squalid": "4cp",
+            "Poor": "4cp",
+            "Modest": "5cp",
+            "Comfortable": "7cp",
+            "Wealthy": "1sp",
+            "Aristocratic": "2sp"
+        }
+    },
+    "Tea": {
+        "chanceOfBeingAvailable": 0.6,
+        "prices": {
+            "Squalid": "2cp",
+            "Poor": "3cp",
+            "Modest": "4cp",
+            "Comfortable": "5cp",
+            "Wealthy": "6cp",
+            "Aristocratic": "7cp"
+        }
+    },
+    "Rat-tail-touille": {
+        "chanceOfBeingAvailable": 0.3,
+        "prices": {
+            "Squalid": "2cp",
+            "Poor": "2cp",
+            "Modest": "4cp",
+            "Comfortable": "6cp",
+            "Wealthy": "1gp",
+            "Aristocratic": "4gp"
         }
     }
 }

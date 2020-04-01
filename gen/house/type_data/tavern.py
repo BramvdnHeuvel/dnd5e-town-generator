@@ -1,13 +1,9 @@
 from flask import url_for
 import random, json
 
-with open('data/menu.json', 'r') as open_file:
-    MENU = json.load(open_file)
-    RICHNESS = ['Squalid', 'Poor', 'Modest', 'Comfortable', 'Wealthy', 'Aristocratic']
-
-
 
 def get_data(tavern):
+    RICHNESS = ['Squalid', 'Poor', 'Modest', 'Comfortable', 'Wealthy', 'Aristocratic']
     richness = random.choice(RICHNESS)
     menu = get_menu(richness)
 
@@ -77,6 +73,9 @@ def guests(tavern):
     return guest_list 
 
 def get_menu(wealth):
+    with open('data/menu.json', 'r') as open_file:
+        MENU = json.load(open_file)
+
     this_menu = {}
 
     for meal in MENU:

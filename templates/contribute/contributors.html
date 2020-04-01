@@ -19,7 +19,9 @@
         </p>
         <h2>Contributors</h2>
         <ul>
-            <li>[0] Mr. Example Man</li>
+            {% for name in conts %}
+                <li>[{{ conts[name] }}] {{ name }}</li>
+            {% endfor %}
         </ul>
     </div>
 </body>

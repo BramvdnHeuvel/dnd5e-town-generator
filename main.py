@@ -178,7 +178,7 @@ def add_food():
 
 @app.route('/contributors')
 def show_contributors():
-    return render_template('contribute/contributors.html')
+    return render_template('contribute/contributors.html', conts=contributors.get())
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=55002)
