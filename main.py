@@ -176,5 +176,9 @@ def add_food():
     )
     return render_template('contribute/food.html', response=True)
 
+@app.route('/contributors')
+def show_contributors():
+    return render_template('contribute/contributors.html')
+
 if __name__ == '__main__':
     app.run(debug=True)
