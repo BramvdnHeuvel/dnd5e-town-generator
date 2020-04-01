@@ -32,6 +32,27 @@ def add_food(food_name, squalid, poor, modest, comfortable, wealthy, aristocrati
     with open('data/contributions/food.json', 'w') as write_file:
         json.dump(FOOD, write_file, ensure_ascii=True, indent=4)
 
+def add_occupation(occupation, sv, author='Unknown'):
+    with open('data/contributions/occupations.json', 'r') as open_file:
+        OCCUPATIONS = json.load(open_file)
+
+        if occupation not in OCCUPATIONS:
+            OCCUPATIONS[occupation] = {
+                'sv': sv,
+                'author': author if author != '' else 'Unknown'
+            }
+        
+    with open('data/contributions/occupations.json', 'w') as open_file:
+        json.dump(OCCUPATIONS, open_file, indent=4) 
+
+def get_occups():
+    with open('data/commoner-occupations.json', 'r') as open_file:
+        JOBS = json.load(open_file)
+    
+    relevant_jobs = {job: JOBS[job] for job in JOBS if (job == 'Baker' or random.random() < 0.25)}
+
+    return relevant_jobs
+
 def get():
     return json.load(open('data/contributions/contributors.json', 'r'))
 

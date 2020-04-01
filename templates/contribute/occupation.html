@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/static/marg.css">
+    <link rel="stylesheet" type="text/css" href="/static/intro.css">
+    <title>Add store reviews</title>
+    {% include "parts/icon.html" %}
+</head>
+<body>
+    <div id="preVue">
+        <div id="tbox">
+            <p><a href="{{ url_for('town_menu') }}">Return to homepage</a></p>
+            {% if response %}
+            <h4 style="color: green;">Thank you for your submission!</h4>
+            <p style="color: green;">
+                To prevent profanity or other abusive texts from appearing in the generator,
+                the moderators will check your submission before it gets added to the website.
+                When it will, we will give you credit on <a href="{{ url_for('show_contributors') }}">
+                    the contributors page</a>!
+            </p>
+            {% endif %}
+            <br>
+            <h1>Submit custom occupations</h1>
+            <p>
+                Don't you agree that there need to be more available occupations for commonbers?
+                Give commoners more occupations!
+            </p>
+            <form action="/contribute/occupation" method="POST">
+                
+                <table border="1">
+                    <thead>
+                        <th>Occupation</th>
+                        <th>SV*</th>
+                    </thead>
+                    <tbody>
+                        {% for o in occups %}
+                            <tr>
+                                <td>{{ o }}</td>
+                                <td>{{ occups[o] }}</td>
+                            </tr>
+                        {% endfor %}
+                        <tr>
+                            <td><input type="text" name="occupation" required></td>
+                            <td><input type="number" name="sv" required></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <em>
+                    * SV means Support Value, which means how many households 
+                    one business can support. For example, a baker has an SV
+                    of 25, there's about one baker for each 25 households.
+                </em>
+
+                <p>
+                    <b>Author: </b>
+                    <input type="text" name="author"><br>
+                    <em>Fill this one in to get credit.</em>
+                </p>
+
+                <input type="submit" value="Send suggestion">
+            </form>
+        </div>
+    </div>
+</body>
+</html>

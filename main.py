@@ -176,6 +176,19 @@ def add_food():
     )
     return render_template('contribute/food.html', response=True)
 
+@app.route('/contribute/occupation', methods=['GET', 'POST'])
+def add_occupation():
+    f = request.form
+
+    if request.method == 'GET' or 'occupation' not in f or 'sv' not in f:
+        return render_template('contribute/occupation.html', response=False, occups=contributors.get_occups())
+
+    if 'author' in f:
+        contributors.add_occupation(f['occupation'], f['sv'], author=f['author'])
+    else:
+        contributors.add_occupation(f['occupation'], f['sv'])
+    return render_template('contribute/occupation.html', response=True, occups=contributors.get_occups())
+
 @app.route('/contributors')
 def show_contributors():
     return render_template('contribute/contributors.html', conts=contributors.get())
