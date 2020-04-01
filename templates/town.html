@@ -22,9 +22,11 @@
 
     {% for name in town.classes %}
         {% if town.classes[name]['shop'] == None and town.classes[name]['total'] > 0 %}
-            <a href="{{ url_for('show_people_of_class', town_name=town.name, size=town.size, class_name=name) }}">
-                <p>View all {{ name.lower() }}s: {{ town.classes[name]['total'] }}</p>
-            </a>
+            <p>
+                <a href="{{ url_for('show_people_of_class', town_name=town.name, size=town.size, class_name=name) }}">
+                View all {{ name.lower() }}s: {{ town.classes[name]['total'] }}
+                </a>
+            </p>
         {% endif %}
     {% endfor %}
 
