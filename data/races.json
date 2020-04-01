@@ -106,9 +106,9 @@
     "Hobgoblin": {
         "density": 2500,
         "age": {
-            "maturesAt": 0,
-            "livesUntil": 0,
-            "becomesParentUntil": 0
+            "maturesAt": 20,
+            "livesUntil": 90,
+            "becomesParentUntil": 40
         }
     },
     "Lizardfolk": {
