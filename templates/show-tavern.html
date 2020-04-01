@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% if tavern == None %}Unknown tavern{% else %}Tavern {{ tavern.name }}{% endif %}</title>
+    {% include "parts/icon.html" %}
 </head>
 <body>
     <a href="{{ url_for('show_town', town_name=town.name, size=town.size) }}"><< Go back to main town.</a>

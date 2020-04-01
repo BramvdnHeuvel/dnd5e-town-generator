@@ -6,7 +6,7 @@
     <link rel="stylesheet" type="text/css" href="/static/marg.css">
     <link rel="stylesheet" type="text/css" href="/static/intro.css">
     <title>Add store reviews</title>
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    {% include "parts/icon.html" %}
 </head>
 <body>
     <div id="preVue">
@@ -38,19 +38,19 @@
                 </p>
                 
                 <textarea 
-                    v-model="desc" 
-                    name="description"
-                    style="width: 50%;height: 10em;"
-                    required
+                v-model="desc" 
+                name="description"
+                style="width: 50%;height: 10em;"
+                required
                 >
                 </textarea>
-
+                
                 <p>
                     <b>Author: </b>
                     <input type="text" name="author"><br>
                     <em>Fill this one in to get credit.</em>
                 </p>
-
+                
                 <input type="submit" value="Send suggestion">
             </form>
             <p v-if="!showHelp" v-on:click="showHelp = true"><a href="#">Extra tips</a></p>
@@ -63,9 +63,9 @@
                 Town preview:
             </h3>
             {% raw %}
-                <p v-for="dPart in filledInDesc">
-                    {{ dPart }}
-                </p>
+            <p v-for="dPart in filledInDesc">
+                {{ dPart }}
+            </p>
             {% endraw %}
         </div>
     </div>
@@ -74,6 +74,7 @@
         const shopName = "{{ names['shop'] }}";
         const ownerName = "{{ names['owner'] }}";
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="/static/review-preview.js"></script>
 </body>
 </html>
