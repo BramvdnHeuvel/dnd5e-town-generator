@@ -1,7 +1,8 @@
 from time import strftime
 from functools import wraps
-from flask import request
+from flask import request, session
 from objects import clean_tree
+import json
 
 def add_statistics(route_func):
     def app_route(rule, **options):
@@ -10,8 +11,11 @@ def add_statistics(route_func):
             def website_func(*args, **kwargs):
                 if new_period_arrived():
                     archive()
+
+                if 'user_no' not in session:
+                    session['user_no'] = get_new_session_user()
                 
-                log_to_today(strftime('[%Y-%b-%d %H:%M:%S] ') + request.path)
+                log_to_today(strftime('[%Y-%b-%d %H:%M:%S] ') + ' User ' + session['user_no'] + ' : ' + request.method + ' ' + request.path)
 
                 output = func(*args, **kwargs)
                 clean_tree()
@@ -48,3 +52,9 @@ def new_period_arrived():
         now = strftime("%Y-%b-%d\n")
 
         return date != now
+
+def get_new_session_user():
+    i = json.load(open('data/logs/counter.json', 'r'))
+    json.dump(i+1, open('data/logs/counter.json', 'w'))
+
+    return f'#{i}'

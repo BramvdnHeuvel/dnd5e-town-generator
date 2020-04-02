@@ -200,4 +200,5 @@ def show_contributors():
     return render_template('contribute/contributors.html', conts=contributors.get())
 
 if __name__ == '__main__':
+    app.config['SECRET_KEY'] = os.urandom(12)
     app.run(debug=True)
