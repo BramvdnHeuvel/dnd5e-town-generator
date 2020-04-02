@@ -1,6 +1,6 @@
 # The dnd5e town generator
 
-This repository contains a program that allows you to look up humongous cities in a "memory free" manner.
+This repository contains a program that allows you to look up humongous cities in a "memory free" manner. This program is running live on [this website](http://town.noordstar.me/)!
 
 ## How does it work?
 
