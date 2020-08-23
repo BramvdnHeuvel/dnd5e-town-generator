@@ -15,6 +15,13 @@
 
     <link rel="stylesheet" type="text/css" href="/static/marg.css">
     <link rel="stylesheet" type="text/css" href="/static/intro.css">
+
+    {% if allow_ads %}
+    <!-- Google Ads -->
+    <script data-ad-client="ca-pub-3937748858301996" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    {% else %}
+    <!-- No ads here-o 'cause you're a HERO -->
+    {% endif %}
 </head>
 <body>
     <div id="tbox">
@@ -131,7 +138,7 @@
             <li><a href="/contribute/food">Add new tavern food</a></li>
             <li><a href="/contribute/review">Add more store reviews</a></li>
             <li><a href="/contribute/occupation">Add new commoner occupations</a></li>
-            <!-- COMING SOON 
+            <!-- COMING SOON - maybe?
                 <li><a href="/contribute/inventory">Add more inventory items</a></li>
             -->
         </ul>

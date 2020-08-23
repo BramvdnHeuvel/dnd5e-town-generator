@@ -4,7 +4,7 @@ from src.extractor import iter_over_people
 from src.sanitizer import correct_size_only
 from src.traffic import add_statistics
 from src import contributors
-from config import PREMIUM
+from config import PREMIUM, ALLOW_ADS
 import os
 
 app = Flask(__name__)
@@ -18,7 +18,7 @@ def favicon():
 @app.route('/', methods=['GET', 'POST'])
 def town_menu():
     if request.method == 'GET':
-        return render_template('index.html', is_premium=PREMIUM)
+        return render_template('index.html', is_premium=PREMIUM, allow_ads=ALLOW_ADS)
 
     if 'town_name' in request.form and 'size' in request.form:
         return redirect(url_for('show_town', 
@@ -197,7 +197,8 @@ def add_occupation():
 
 @app.route('/contributors')
 def show_contributors():
-    return render_template('contribute/contributors.html', conts=contributors.get())
+    return render_template('contribute/contributors.html', conts=contributors.get(), allow_ads=ALLOW_ADS)
+
 
 if __name__ == '__main__':
     app.config['SECRET_KEY'] = os.urandom(12)
