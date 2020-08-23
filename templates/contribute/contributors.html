@@ -12,6 +12,13 @@
 
     <link rel="stylesheet" type="text/css" href="/static/marg.css">
     <link rel="stylesheet" type="text/css" href="/static/intro.css">
+
+    {% if allow_ads %}
+    <!-- Google Ads -->
+    <script data-ad-client="ca-pub-3937748858301996" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    {% else %}
+    <!-- No ads here-o 'cause you're a HERO -->
+    {% endif %}
 </head>
 <body>
     <div id="tbox">

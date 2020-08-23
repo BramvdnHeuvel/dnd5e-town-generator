@@ -18,7 +18,19 @@ PREMIUM = False
 #   - You want to allow multiple users to use this program simultaneously;
 #   - Your computer doesn't handle huge calculations well.
 #
-# Set PREMIUM to "True" if:
+# Set PREMIUM to True if:
 #   - You want to go wild with creating crazy town sizes;
 #   - You're okay with your computer being a bit slower during the calculations;
 #   - There's no more than a handful of people who will use the program, (i.e, you're alone).
+
+
+
+ALLOW_ADS = False
+# If you're not the original developer, you can ignore this value.
+#
+# If you set this boolean to True, ads may pop up on your webpage.
+# As the developer, I wanted to put some ads on the website so I can pay
+# for the server that is running this website. Setting this to True
+# won't earn you any money - I'll be the one getting it.
+# 
+
