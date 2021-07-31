@@ -201,5 +201,13 @@ def show_contributors():
 
 
 if __name__ == '__main__':
-    app.config['SECRET_KEY'] = os.urandom(12)
-    app.run(debug=True)
+    SECRET_KEY = os.getenv('SECRET_KEY') or os.urandom(12)
+    HOST = os.getenv('HOST') or '127.0.0.1'
+    PORT = os.getenv('PORT') or '5000'
+
+    app.config['SECRET_KEY'] = SECRET_KEY
+
+    if HOST == '127.0.0.1':
+        app.run(debug=True, port=int(PORT))
+    else:
+        app.run(host=HOST, port=PORT)
