@@ -17,18 +17,15 @@ low speed.
 
 ## How to set up
 
-You can install the requirements and run `main.py`. Alternatively, you can run the town generator in a Docker container. Build the Docker image with the following command:
+You can install the requirements and run `main.py`. Alternatively, you can run the town generator in a Docker container. 
+
+You can run the **D&D Town Generator** docker container at `localhost:5000` by running the following command:
 
 ```
-docker build -t dnd-town-gen ./
-```
-
-And then run the docker container with the following data.
-
-```
-docker run -p 5000:5000 \
+docker run -p 5000:80 \
 --name town-generator \
--e HOST='<desired ip address, usually 127.0.0.1 or 0.0.0.0>' \
 -e SECRET_KEY='<random password if desired>' \
-dnd-town-gen
+noordstar/town-generator
 ```
+
+Or you can build the container yourself by using the included [Dockerfile](/Dockerfile).

@@ -209,5 +209,7 @@ if __name__ == '__main__':
 
     if HOST == '127.0.0.1':
         app.run(debug=True, port=int(PORT))
+    elif HOST == 'docker':
+        app.run(host='0.0.0.0', port=(os.getenv('PORT') or '80'))
     else:
         app.run(host=HOST, port=PORT)
