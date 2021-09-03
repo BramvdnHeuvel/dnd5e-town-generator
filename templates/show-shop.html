@@ -15,6 +15,6 @@
 
     <h3>This store is owned by {{ shop.inhabitants[0] }}.</h3>
     <h4>Reputation</h4>
-    <p style="width: 50%;">{{ shop.extra_data['review'] }}</p>
+    <p style="width: 50%;">{{ shop.extra_data['review'] | safe }}</p>
 </body>
 </html>
