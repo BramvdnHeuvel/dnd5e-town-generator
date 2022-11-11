@@ -2,7 +2,7 @@ module Data exposing (defaultOccupations)
 
 import Dict
 
-{- All defaultOccupations -}
+{-| All default occupations that a commoner can have. -}
 defaultOccupations : Dict.Dict String Int
 defaultOccupations =
     Dict.fromList
@@ -90,3 +90,62 @@ defaultOccupations =
         , ( "Philosopher"               , 2000 )
         , ( "Noble"                     , 3000 )
         ]
+
+{-| All default items that a commoner can have in their inventory. -}
+defaultInventory : List String
+defaultInventory =
+    [ "Bag of 20 caltrops"
+    , "Ball of twine"
+    , "Bottle of ink"
+    , "Bracelet or anklet worth 25gp"
+    , "Bracelet or anklet worth 250gp"
+    , "Brass shears"
+    , "Candle"
+    , "Comb"
+    , "Brush"
+    , "Component pouch"
+    , "Deck of playing cards"
+    , "1d4 dice"
+    , "Flute"
+    , "Gemstone worth 10gp"
+    , "Gemstone worth 50gp"
+    , "Gemstone worth 100gp"
+    , "Gemstone worth 500gp"
+    , "Holy symbol"
+    , "Key"
+    , "Laundry ticket"
+    , "Letter in a sealed envelope"
+    , "Necklace worth 25gp"
+    , "Necklace worth 250gp"
+    , "Notebook of names and addresses"
+    , "Pocket mirror"
+    , "Potion of healing in a vial"
+    , "Pouch containing 6cp"
+    , "Pouch containing 11cp and 1sp"
+    , "Pouch containing 15cp, 3sp, and 1gp"
+    , "Pouch containing 7cp, 5sp, and 2gp"
+    , "Pouch containg 2cp, 4sp and 5gp"
+    , "Pouch containing 3sp and 10gp"
+    , "Pouch of herbs"
+    , "Pouch of 20 sling bullets"
+    , "Ring or earring worth 25gp"
+    , "Ring or earring worth 250gp"
+    , "Saltshaker"
+    , "Pepper mill"
+    , "Signet ring"
+    , "Silk handkerchief"
+    , "Smoking pipe"
+    , "Spectacles"
+    , "Spool of thread"
+    , "Spyglass"
+    , "String of 1d4 harbor moons (platinum-and-electrum coins worth 50gp each in major human cities)"
+    , "String of 2d6 taols (brass coins worth 2gp each in major human cities)"
+    , "The Code Legal written on a folded scroll"
+    , "Tinderbox"
+    , "Tiny box of tobacco"
+    , "Vial of perfume"
+    , "Vial of cologne"
+    , "Vial of basic poison"
+    ]
+
+
